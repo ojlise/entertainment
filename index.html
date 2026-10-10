@@ -77,16 +77,19 @@ h3.grp::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
 .list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
 .list > li + li { border-top: 1px solid var(--line); }
-.item { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 4px 16px; align-items: center; padding: 14px 16px; }
-.rank { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
-.date { font-family: var(--font-mono); line-height: 1; text-align: center; }
-.date .m { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.date .d { font-size: 24px; font-weight: 500; display: block; margin-block: 3px; }
-.date .w { font-size: 10px; color: var(--muted); }
+.item { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 4px 16px; align-items: start; padding: 14px 16px; }
 .ttl { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
 .meta { color: var(--muted); font-size: 13px; margin-top: 3px; }
-.blurb { font-size: 13px; margin-top: 3px; }
-.side { display: grid; justify-items: end; gap: 6px; }
+.desc { font-size: 13px; margin-top: 5px; max-width: 70ch; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.lnk { display: inline-flex; align-items: center; font-size: 12px; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; color: var(--fg); background: var(--surface); }
+.lnk:hover { border-color: var(--accent); color: var(--accent); }
+.play { width: 0; height: 0; border-left: 7px solid currentColor; border-block: 4.5px solid transparent; margin-right: 6px; }
+.art { position: relative; width: 100%; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; display: flex; align-items: flex-end; padding: 6px; color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 11px; line-height: 1.1; background: linear-gradient(165deg, color-mix(in srgb, var(--pc) 55%, #000), color-mix(in srgb, var(--pc) 22%, #000)); }
+.art .at { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.art .tag { position: absolute; top: 5px; left: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; background: rgba(0, 0, 0, 0.6); border-radius: 3px; padding: 1px 4px; }
+.side { display: grid; justify-items: end; gap: 6px; align-self: start; }
 .plat { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
 .score { font-family: var(--font-mono); font-size: 13px; display: flex; align-items: center; gap: 8px; }
 .score .track { width: 72px; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
@@ -101,7 +104,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 footer p { margin: 0; max-width: 75ch; }
 
 @media (max-width: 600px) {
-  .item { grid-template-columns: 40px minmax(0, 1fr); padding: 12px; }
+  .item { grid-template-columns: 56px minmax(0, 1fr); gap: 4px 12px; padding: 12px; }
+  .art { grid-row: 1 / span 2; }
   .side { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: start; align-items: center; gap: 12px; margin-top: 4px; }
   .stamp, .jump { text-align: left; justify-content: flex-start; }
   .lbl { min-width: 100%; }
@@ -162,6 +166,7 @@ footer p { margin: 0; max-width: 75ch; }
 
   <footer>
     <p>Scores are Rotten Tomatoes critics' percentages. A dagger (†) marks titles whose score or service comes from a roundup and general knowledge rather than a fresh lookup, so treat them as close, not exact. Many Netflix scores come from a mid-2026 snapshot and may have moved since. New releases show no score until reviews are in.</p>
+    <p id="credit"></p>
     <p>Streaming lineups shift. Confirm a title on the service before you subscribe. Sources:
       <a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-october-2026-new-releases-movies-tv-1236718064/" target="_blank" rel="noopener">The Hollywood Reporter</a>,
       <a href="https://variety.com/lists/best-movies-streaming-october-2026/" target="_blank" rel="noopener">Variety</a>,
@@ -273,6 +278,130 @@ var NEW = [
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
 var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV", "Peacock", "Paramount+", "MGM+"];
 
+
+/* Optional: paste a free TMDB API key (themoviedb.org/settings/api) to show real posters and official summaries.
+   It works on your GitHub Pages site. The claude.ai preview blocks outside requests and keeps the title cards. */
+var TMDB_KEY = "";
+
+var DESC = {
+  "Silo": "Thousands live in a giant underground silo, and an engineer starts uncovering the truth behind its rules.",
+  "Invincible": "A teenager inherits his father's powers, and the superhero life turns out darker than he expected. Animated.",
+  "One Piece": "Luffy and his Straw Hat crew sail the Grand Line in the live-action version of the hit manga.",
+  "Deadloch": "An Australian crime comedy-mystery that pairs two very different detectives.",
+  "Parasite": "A poor family schemes its way into a wealthy household, with dark consequences.",
+  "The Wild Robot": "A shipwrecked robot learns to raise an orphaned gosling on a wild island. Animated.",
+  "Widow's Bay": "The mayor of a sleepy New England island tries to boost tourism, even though the place is cursed.",
+  "Portrait of a Lady on Fire": "In 18th-century France, a painter secretly portrays a reluctant bride-to-be, and the two fall in love.",
+  "The Farewell": "A family stages a wedding to hide a grandmother's terminal diagnosis from her.",
+  "The Bear": "A chef and his Chicago kitchen crew keep pushing to make their restaurant work.",
+  "Mad Max: Fury Road": "Max joins Furiosa on a desert chase to free a tyrant's captives.",
+  "Spider-Man: Into the Spider-Verse": "Miles Morales becomes Spider-Man and meets heroes from other dimensions. Animated.",
+  "From": "Travelers get stuck in a small town they can't leave, where monsters come out at night.",
+  "Till": "A mother seeks justice after her son's 1955 murder in Mississippi.",
+  "Roma": "A year in the life of a domestic worker in 1970s Mexico City.",
+  "Anatomy of a Fall": "A writer is tried over her husband's death, and their son becomes the key witness.",
+  "The Comeback": "Valerie Cherish returns with yet another attempt at a TV comeback.",
+  "Past Lives": "Two childhood friends reconnect decades after one of their families emigrated.",
+  "The Handmaiden": "A con man, a maid and a wealthy heiress tangle in 1930s Korea.",
+  "Everything Everywhere All at Once": "A laundromat owner is pulled into a multiverse fight to save everything.",
+  "Whiplash": "A young drummer faces an abusive conservatory teacher who pushes him to the edge.",
+  "House of the Dragon": "The Targaryen civil war known as the Dance of the Dragons continues.",
+  "The Zone of Interest": "A Nazi commandant's family lives a quiet domestic life beside Auschwitz.",
+  "Paradise": "A thriller set in a seemingly perfect community with something to hide.",
+  "For All Mankind": "Alternate history in which the space race never ended.",
+  "Nope": "Siblings on a California horse ranch run into something strange in the sky.",
+  "DTF St. Louis": "A murder mystery tangled up in a midwestern dating scene.",
+  "Rooster": "Steve Carell plays an author who visits his daughter on a college campus.",
+  "Cape Fear": "A new series inspired by the classic thriller about a lawyer stalked by a vengeful former client.",
+  "People We Meet on Vacation": "Two best friends take a trip together every summer and start to wonder if they are more.",
+  "Avatar: The Last Airbender": "Aang keeps learning the elements on his journey to stop the Fire Lord.",
+  "I Will Find You": "A man in prison for his son's murder sets out to prove his innocence.",
+  "The Lincoln Lawyer": "Mickey Haller defends his clients and works his cases from the back of a Lincoln.",
+  "Heartbreak High": "Teen drama set at an Australian high school.",
+  "Devil May Cry": "Animated demon-hunting action based on the video game.",
+  "Legends": "A crime thriller series and one of Netflix's best-reviewed shows of the year.",
+  "How to Get to Heaven From Belfast": "A comedy thriller from the creator of Derry Girls.",
+  "Top Gun: Maverick": "Pete Mitchell trains a new generation of pilots for a near-impossible mission.",
+  "Puss in Boots: The Last Wish": "Puss learns he is down to his last life and goes looking for a wishing star. Animated.",
+  "Jo Nesbø's Detective Hole": "Norwegian detective Harry Hole works the dark cases of Oslo.",
+  "Running Point": "Kate Hudson runs her family's pro basketball team.",
+  "Peaky Blinders: The Immortal Man": "Tommy Shelby returns in a film continuing the Birmingham crime saga.",
+  "Beef": "A dark comedy anthology about a feud that spirals out of control.",
+  "The Night Agent": "FBI agent Peter Sutherland is pulled into another conspiracy.",
+  "Something Very Bad Is Going to Happen": "A dark horror-comedy limited series.",
+  "Run Away": "A father searches for his missing daughter, based on Harlan Coben's novel.",
+  "Bridgerton": "Benedict Bridgerton's love story takes the lead this season.",
+  "Remarkably Bright Creatures": "A widow bonds with a giant Pacific octopus at the aquarium where she works.",
+  "Big Mistakes": "A crime comedy about siblings who are in way over their heads.",
+  "The Rip": "Miami cops find a huge stash of cash and start to distrust one another.",
+  "Vladimir": "A professor becomes fixated on a younger colleague.",
+  "Boyfriend on Demand": "A romantic comedy built around a virtual boyfriend service.",
+  "Agatha Christie's Seven Dials": "A country-house mystery adapted from Agatha Christie.",
+  "His & Hers": "A murder investigation in a small Georgia town, told from two points of view.",
+  "The Ministry of Ungentlemanly Warfare": "British saboteurs run a secret mission against German U-boats in World War II.",
+  "Knock at the Cabin": "Strangers force a family to make an impossible choice.",
+  "Those Who Wish Me Dead": "A smokejumper protects a boy hunted by assassins as a wildfire spreads.",
+  "Stranger Things: Tales from '85": "Animated adventures set in Hawkins in 1985.",
+  "Man on Fire": "A series based on the story of a bodyguard and the girl he protects.",
+  "The Madison": "A Taylor Sheridan family drama starring Michelle Pfeiffer.",
+  "Scarpetta": "Medical examiner Kay Scarpetta investigates a string of murders.",
+  "Elle": "A prequel that follows Elle Woods in high school."
+};
+
+var META = {};
+try { META = JSON.parse(localStorage.getItem("streamguide.tmdb.v1") || "{}") || {}; } catch (e) { META = {}; }
+function slug(i) { return (i.t + "-" + (i.sub || "")).toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
+function norm(x) { return String(x || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function clip(x, n) { if (x.length <= n) return x; var c = x.slice(0, n); return c.slice(0, c.lastIndexOf(" ")) + "…"; }
+function trailerUrl(i) {
+  var q = i.t;
+  if (i.type === "show" && i.sub && /season/i.test(i.sub)) q += " " + i.sub;
+  if (i.type === "movie") q += " " + (/^\d{4}$/.test(i.sub || "") ? i.sub : "2026");
+  return "https://www.youtube.com/results?search_query=" + encodeURIComponent(q + " official trailer");
+}
+function reviewUrl(i) { return "https://www.rottentomatoes.com/search?search=" + encodeURIComponent(i.t); }
+function artTile(i, tag) {
+  var m = META[slug(i)] || {};
+  var inner = m.p ? '<img src="https://image.tmdb.org/t/p/w185' + m.p + '" alt="" loading="lazy">' : '<span class="at">' + i.t + "</span>";
+  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span></div>";
+}
+function descText(i) { var m = META[slug(i)] || {}; return m.o || i.b || DESC[i.t] || ""; }
+function linksHtml(i) {
+  return '<div class="links"><a class="lnk" href="' + trailerUrl(i) + '" target="_blank" rel="noopener"><span class="play"></span>Trailer</a>' +
+    '<a class="lnk" href="' + reviewUrl(i) + '" target="_blank" rel="noopener">Reviews</a></div>';
+}
+function tmdbPick(i, results) {
+  var want = norm(i.t), best = null;
+  results.forEach(function (r) {
+    if (norm(r.title || r.name) !== want) return;
+    var d = r.release_date || r.first_air_date || "";
+    if (!best || d > (best.release_date || best.first_air_date || "")) best = r;
+  });
+  return best;
+}
+function fetchMeta(i) {
+  var kind = i.type === "movie" ? "movie" : "tv";
+  var url = "https://api.themoviedb.org/3/search/" + kind + "?api_key=" + encodeURIComponent(TMDB_KEY) + "&query=" + encodeURIComponent(i.t);
+  if (kind === "movie" && /^\d{4}$/.test(i.sub || "")) url += "&year=" + i.sub;
+  return fetch(url).then(function (r) { return r.ok ? r.json() : { results: [] }; }).then(function (j) {
+    var b = tmdbPick(i, j.results || []);
+    META[slug(i)] = b ? { p: b.poster_path || "", o: clip(b.overview || "", 230) } : { p: "", o: "" };
+  }).catch(function () {});
+}
+function hydrate() {
+  if (!TMDB_KEY) return;
+  var todo = TOP.concat(NEW).filter(function (i) { return !META[slug(i)]; });
+  function next() {
+    var batch = todo.splice(0, 6);
+    if (!batch.length) return;
+    Promise.all(batch.map(fetchMeta)).then(function () {
+      try { localStorage.setItem("streamguide.tmdb.v1", JSON.stringify(META)); } catch (e) {}
+      renderTop(); renderNew(); next();
+    });
+  }
+  next();
+}
+
 var state = { type: "all", genre: "", plat: "", q: "", sort: "score", min: 0 };
 try { var saved = JSON.parse(localStorage.getItem("streamguide.v1") || "null"); if (saved) { for (var k in state) { if (saved[k] !== undefined) state[k] = saved[k]; } state.q = ""; } } catch (e) {}
 function persist() { try { localStorage.setItem("streamguide.v1", JSON.stringify(state)); } catch (e) {} }
@@ -321,8 +450,9 @@ function renderTop() {
   var el = document.getElementById("topList");
   if (!rows.length) { el.innerHTML = '<li class="empty">Nothing matches these filters. Try clearing one.</li>'; return; }
   el.innerHTML = rows.map(function (i, n) {
-    return '<li class="item"><span class="rank">' + String(n + 1).padStart(2, "0") + '</span>' +
-      '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div></div>' +
+    return '<li class="item">' + artTile(i, String(n + 1).padStart(2, "0")) +
+      '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div>' +
+      '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
       '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
       '<span class="score"><span class="track"><span class="fill" style="width:' + i.s + '%"></span></span>' + i.s + '%' + (i.est ? "<sup>†</sup>" : "") + '</span></div></li>';
   }).join("");
@@ -333,8 +463,9 @@ function newRow(i) {
   if (df < 0) badge = '<span class="badge now">Out now</span>';
   else if (df === 0) badge = '<span class="badge today">Today</span>';
   else badge = '<span class="badge">' + (df === 1 ? "Tomorrow" : "In " + df + " days") + '</span>';
-  return '<li class="item"><div class="date"><span class="m">' + dp.m + '</span><span class="d">' + dp.d + '</span><span class="w">' + dp.w + '</span></div>' +
-    '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div><div class="blurb">' + i.b + '</div></div>' +
+  return '<li class="item">' + artTile(i, dp.m.toUpperCase() + " " + dp.d) +
+    '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + dp.w + ", " + dp.m + " " + dp.d + " · " + i.g.join(", ") + '</div>' +
+    '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
     '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
     (i.s ? '<span class="score">' + i.s + '%</span>' : "") + badge + '</div></li>';
 }
@@ -368,6 +499,10 @@ document.getElementById("q").addEventListener("input", function (e) { state.q = 
 document.getElementById("reset").addEventListener("click", function () { state = { type: "all", genre: "", plat: "", q: "", sort: state.sort, min: 0 }; document.getElementById("q").value = ""; render(); });
 
 render();
+document.getElementById("credit").textContent = TMDB_KEY
+  ? "Posters and summaries from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB."
+  : "Title cards are generated artwork, not official posters. Trailer links open a YouTube search for the official trailer.";
+hydrate();
 </script>
 
 </body>
