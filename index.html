@@ -110,6 +110,23 @@ footer p { margin: 0; max-width: 75ch; }
   .stamp, .jump { text-align: left; justify-content: flex-start; }
   .lbl { min-width: 100%; }
 }
+.fbtn, .fpanel { display: none; }
+.fbtn { align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+.fbtn .n { font-family: var(--font-mono); font-size: 11px; background: var(--accent); color: var(--bg); border-radius: 999px; padding: 0 6px; }
+.fbtn[aria-expanded="true"] { border-color: var(--accent); }
+.fld { display: grid; gap: 3px; min-width: 0; }
+.fld .lbl { min-width: 0; }
+.fld .sel { width: 100%; min-width: 0; }
+.fclear { grid-column: 1 / -1; justify-self: start; }
+/* Phones and narrow windows: one search row plus a Filters button that opens dropdowns. Wider screens keep the full chip menu. */
+@media (max-width: 700px) {
+  .bar { gap: 8px; padding-block: 8px; max-height: 75vh; overflow-y: auto; }
+  .bar .wide, #type, #sort, .r1 .lbl { display: none; }
+  .r1 { flex-wrap: nowrap; }
+  .fbtn { display: inline-flex; }
+  .fpanel { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  section { scroll-margin-top: 70px; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .score .fill { transition: width 0.4s ease; }
 }
@@ -128,7 +145,7 @@ footer p { margin: 0; max-width: 75ch; }
   </header>
 
   <div class="bar" role="search">
-    <div class="row">
+    <div class="row r1">
       <span class="lbl">Type</span>
       <div class="seg" id="type" role="group" aria-label="Type">
         <button type="button" data-v="all" aria-pressed="true">All</button>
@@ -142,10 +159,19 @@ footer p { margin: 0; max-width: 75ch; }
         <option value="title">Sort: A to Z</option>
         <option value="plat">Sort: Service</option>
       </select>
+      <button type="button" class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fpanel">Filters <span class="n" id="fcount" hidden></span></button>
     </div>
-    <div class="row"><span class="lbl">Genre</span><div class="chips" id="genres"></div></div>
-    <div class="row"><span class="lbl">Service</span><div class="chips" id="plats"></div></div>
-    <div class="row"><span class="lbl">Rating</span><div class="chips" id="mins"></div><button type="button" class="reset" id="reset" hidden>Clear filters</button></div>
+    <div class="row wide"><span class="lbl">Genre</span><div class="chips" id="genres"></div></div>
+    <div class="row wide"><span class="lbl">Service</span><div class="chips" id="plats"></div></div>
+    <div class="row wide"><span class="lbl">Rating</span><div class="chips" id="mins"></div><button type="button" class="reset" id="reset" hidden>Clear filters</button></div>
+    <div class="fpanel" id="fpanel" hidden>
+      <label class="fld"><span class="lbl">Type</span><select class="sel" id="mType"><option value="all">All</option><option value="movie">Movies</option><option value="show">Shows</option></select></label>
+      <label class="fld"><span class="lbl">Sort</span><select class="sel" id="mSort"><option value="score">Highest score</option><option value="low">Lowest score</option><option value="title">A to Z</option><option value="plat">Service</option></select></label>
+      <label class="fld"><span class="lbl">Genre</span><select class="sel" id="mGenre"></select></label>
+      <label class="fld"><span class="lbl">Service</span><select class="sel" id="mPlat"></select></label>
+      <label class="fld"><span class="lbl">Rating</span><select class="sel" id="mMin"></select></label>
+      <button type="button" class="reset fclear" id="reset2" hidden>Clear filters</button>
+    </div>
   </div>
 
   <section id="top">
@@ -483,11 +509,30 @@ function renderNew() {
   body.innerHTML = html;
 }
 
+function renderMenu() {
+  var pool = TOP.filter(matches);
+  var opt = function (v, t) { return '<option value="' + v + '">' + t + "</option>"; };
+  document.getElementById("mGenre").innerHTML = opt("", "All genres") + GENRES.map(function (x) { return opt(x, x); }).join("");
+  document.getElementById("mPlat").innerHTML = opt("", "All services") + PLATS.map(function (x) { return opt(x, x); }).join("");
+  document.getElementById("mMin").innerHTML = [0, 60, 70, 80, 90].map(function (x) {
+    return opt(x, (x ? x + "%+" : "Any score") + " (" + pool.filter(function (i) { return i.s >= x; }).length + ")");
+  }).join("");
+  document.getElementById("mType").value = state.type;
+  document.getElementById("mSort").value = state.sort;
+  document.getElementById("mGenre").value = state.genre;
+  document.getElementById("mPlat").value = state.plat;
+  document.getElementById("mMin").value = String(state.min);
+  var n = (state.type !== "all" ? 1 : 0) + (state.genre ? 1 : 0) + (state.plat ? 1 : 0) + (state.min ? 1 : 0);
+  document.getElementById("fcount").textContent = n ? String(n) : "";
+  document.getElementById("fcount").hidden = !n;
+  document.getElementById("reset2").hidden = !(n || state.q);
+}
+
 function render() {
   document.querySelectorAll("#type button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.v === state.type)); });
   document.getElementById("sort").value = state.sort;
   document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q || state.min);
-  renderChips(); renderTop(); renderNew(); persist();
+  renderChips(); renderMenu(); renderTop(); renderNew(); persist();
 }
 
 document.getElementById("type").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.type = b.dataset.v; render(); } });
@@ -495,8 +540,16 @@ document.getElementById("genres").addEventListener("click", function (e) { var b
 document.getElementById("plats").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.plat = state.plat === b.dataset.p ? "" : b.dataset.p; render(); } });
 document.getElementById("mins").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.min = Number(b.dataset.m); render(); } });
 document.getElementById("sort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
-document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderTop(); renderNew(); document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q || state.min); });
+document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderMenu(); renderTop(); renderNew(); document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q || state.min); });
 document.getElementById("reset").addEventListener("click", function () { state = { type: "all", genre: "", plat: "", q: "", sort: state.sort, min: 0 }; document.getElementById("q").value = ""; render(); });
+
+document.getElementById("fbtn").addEventListener("click", function () { var p = document.getElementById("fpanel"); p.hidden = !p.hidden; this.setAttribute("aria-expanded", String(!p.hidden)); });
+document.getElementById("mType").addEventListener("change", function (e) { state.type = e.target.value; render(); });
+document.getElementById("mSort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
+document.getElementById("mGenre").addEventListener("change", function (e) { state.genre = e.target.value; render(); });
+document.getElementById("mPlat").addEventListener("change", function (e) { state.plat = e.target.value; render(); });
+document.getElementById("mMin").addEventListener("change", function (e) { state.min = Number(e.target.value); render(); });
+document.getElementById("reset2").addEventListener("click", function () { document.getElementById("reset").click(); });
 
 render();
 document.getElementById("credit").textContent = TMDB_KEY
