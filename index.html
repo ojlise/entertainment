@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Stream Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +134,7 @@ footer p { margin: 0; max-width: 75ch; }
     </div>
     <div class="row"><span class="lbl">Genre</span><div class="chips" id="genres"></div></div>
     <div class="row"><span class="lbl">Service</span><div class="chips" id="plats"></div></div>
+    <div class="row"><span class="lbl">Min score</span><div class="chips" id="mins"></div></div>
     <div class="row">
       <span class="lbl">Sort</span>
       <select class="sel" id="sort" aria-label="Sort top rated">
@@ -158,7 +163,7 @@ footer p { margin: 0; max-width: 75ch; }
   </section>
 
   <footer>
-    <p>Scores are Rotten Tomatoes critics' percentages. A dagger (†) marks older titles whose score and service come from a recent roundup and general knowledge rather than a fresh lookup, so treat them as close, not exact. New releases show no score until reviews are in.</p>
+    <p>Scores are Rotten Tomatoes critics' percentages. A dagger (†) marks titles whose score or service comes from a roundup and general knowledge rather than a fresh lookup, so treat them as close, not exact. New releases show no score until reviews are in.</p>
     <p>Streaming lineups shift. Confirm a title on the service before you subscribe. Sources:
       <a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-october-2026-new-releases-movies-tv-1236718064/" target="_blank" rel="noopener">The Hollywood Reporter</a>,
       <a href="https://variety.com/lists/best-movies-streaming-october-2026/" target="_blank" rel="noopener">Variety</a>,
@@ -202,7 +207,12 @@ var TOP = [
   { t: "Paradise", sub: "Season 2", type: "show", p: "Hulu", g: ["Suspense", "Drama"], s: 90 },
   { t: "For All Mankind", sub: "Season 5", type: "show", p: "Apple TV", g: ["Sci-Fi", "Drama"], s: 86 },
   { t: "Nope", sub: "2022", type: "movie", p: "Prime Video", g: ["Horror", "Sci-Fi"], s: 82, est: 1 },
-  { t: "Cape Fear", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], s: 77 }
+  { t: "DTF St. Louis", sub: "Season 1", type: "show", p: "HBO Max", g: ["Comedy", "Suspense"], s: 88, est: 1 },
+  { t: "Rooster", sub: "Season 1", type: "show", p: "HBO Max", g: ["Comedy"], s: 88, est: 1 },
+  { t: "Cape Fear", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], s: 77 },
+  { t: "People We Meet on Vacation", sub: "2026", type: "movie", p: "Netflix", g: ["Romance", "Comedy"], s: 76 },
+  { t: "Avatar: The Last Airbender", sub: "Season 2", type: "show", p: "Netflix", g: ["Fantasy", "Action", "Family"], s: 68, est: 1 },
+  { t: "I Will Find You", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 61, est: 1 }
 ];
 
 var NEW = [
@@ -234,7 +244,7 @@ var NEW = [
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
 var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV", "Peacock", "Paramount+", "MGM+"];
 
-var state = { type: "all", genre: "", plat: "", q: "", sort: "score" };
+var state = { type: "all", genre: "", plat: "", q: "", sort: "score", min: 0 };
 try { var saved = JSON.parse(localStorage.getItem("streamguide.v1") || "null"); if (saved) { for (var k in state) { if (saved[k] !== undefined) state[k] = saved[k]; } state.q = ""; } } catch (e) {}
 function persist() { try { localStorage.setItem("streamguide.v1", JSON.stringify(state)); } catch (e) {} }
 
@@ -262,13 +272,14 @@ function matches(i) {
 }
 
 function renderChips() {
+  document.getElementById("mins").innerHTML = [0, 60, 70, 80, 90].map(function (x) { return '<button type="button" class="chip" data-m="' + x + '" aria-pressed="' + (state.min === x) + '">' + (x ? x + "%+" : "Any") + "</button>"; }).join("") + '<span class="count">top rated list only</span>';
   var g = document.getElementById("genres"), p = document.getElementById("plats");
   g.innerHTML = GENRES.map(function (x) { return '<button type="button" class="chip" data-g="' + x + '" aria-pressed="' + (state.genre === x) + '">' + x + "</button>"; }).join("");
   p.innerHTML = PLATS.map(function (x) { return '<button type="button" class="chip" data-p="' + x + '" aria-pressed="' + (state.plat === x) + '">' + dot(x) + x + "</button>"; }).join("");
 }
 
 function renderTop() {
-  var rows = TOP.filter(matches);
+  var rows = TOP.filter(matches).filter(function (i) { return i.s >= state.min; });
   if (state.sort === "title") rows.sort(function (a, b) { return a.t.localeCompare(b.t); });
   else if (state.sort === "plat") rows.sort(function (a, b) { return a.p.localeCompare(b.p) || b.s - a.s; });
   else rows.sort(function (a, b) { return b.s - a.s || a.t.localeCompare(b.t); });
@@ -310,18 +321,20 @@ function renderNew() {
 function render() {
   document.querySelectorAll("#type button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.v === state.type)); });
   document.getElementById("sort").value = state.sort;
-  document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q);
+  document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q || state.min);
   renderChips(); renderTop(); renderNew(); persist();
 }
 
 document.getElementById("type").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.type = b.dataset.v; render(); } });
 document.getElementById("genres").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.genre = state.genre === b.dataset.g ? "" : b.dataset.g; render(); } });
 document.getElementById("plats").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.plat = state.plat === b.dataset.p ? "" : b.dataset.p; render(); } });
+document.getElementById("mins").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { state.min = Number(b.dataset.m); render(); } });
 document.getElementById("sort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
-document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderTop(); renderNew(); document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q); });
-document.getElementById("reset").addEventListener("click", function () { state = { type: "all", genre: "", plat: "", q: "", sort: state.sort }; document.getElementById("q").value = ""; render(); });
+document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderTop(); renderNew(); document.getElementById("reset").hidden = !(state.type !== "all" || state.genre || state.plat || state.q || state.min); });
+document.getElementById("reset").addEventListener("click", function () { state = { type: "all", genre: "", plat: "", q: "", sort: state.sort, min: 0 }; document.getElementById("q").value = ""; render(); });
 
 render();
 </script>
 
-</body></html>
+</body>
+</html>
