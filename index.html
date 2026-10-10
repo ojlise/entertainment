@@ -62,6 +62,7 @@ button, input, select { font: inherit; color: inherit; }
 .chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
 .chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--fg); font-weight: 600; }
 .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.chip .n { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 .search { flex: 1 1 180px; min-width: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 7px 10px; }
 .sel { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 7px 10px; }
 .reset { border: 0; background: none; color: var(--accent); cursor: pointer; text-decoration: underline; padding: 4px; }
@@ -131,19 +132,16 @@ footer p { margin: 0; max-width: 75ch; }
         <button type="button" data-v="show" aria-pressed="false">Shows</button>
       </div>
       <input class="search" id="q" type="search" placeholder="Search titles" aria-label="Search titles" autocomplete="off">
+      <select class="sel" id="sort" aria-label="Sort by">
+        <option value="score">Sort: Highest score</option>
+        <option value="low">Sort: Lowest score</option>
+        <option value="title">Sort: A to Z</option>
+        <option value="plat">Sort: Service</option>
+      </select>
     </div>
     <div class="row"><span class="lbl">Genre</span><div class="chips" id="genres"></div></div>
     <div class="row"><span class="lbl">Service</span><div class="chips" id="plats"></div></div>
-    <div class="row"><span class="lbl">Min score</span><div class="chips" id="mins"></div></div>
-    <div class="row">
-      <span class="lbl">Sort</span>
-      <select class="sel" id="sort" aria-label="Sort top rated">
-        <option value="score">Top rated: score</option>
-        <option value="title">Top rated: A to Z</option>
-        <option value="plat">Top rated: service</option>
-      </select>
-      <button type="button" class="reset" id="reset" hidden>Clear filters</button>
-    </div>
+    <div class="row"><span class="lbl">Rating</span><div class="chips" id="mins"></div><button type="button" class="reset" id="reset" hidden>Clear filters</button></div>
   </div>
 
   <section id="top">
@@ -163,12 +161,13 @@ footer p { margin: 0; max-width: 75ch; }
   </section>
 
   <footer>
-    <p>Scores are Rotten Tomatoes critics' percentages. A dagger (†) marks titles whose score or service comes from a roundup and general knowledge rather than a fresh lookup, so treat them as close, not exact. New releases show no score until reviews are in.</p>
+    <p>Scores are Rotten Tomatoes critics' percentages. A dagger (†) marks titles whose score or service comes from a roundup and general knowledge rather than a fresh lookup, so treat them as close, not exact. Many Netflix scores come from a mid-2026 snapshot and may have moved since. New releases show no score until reviews are in.</p>
     <p>Streaming lineups shift. Confirm a title on the service before you subscribe. Sources:
       <a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-october-2026-new-releases-movies-tv-1236718064/" target="_blank" rel="noopener">The Hollywood Reporter</a>,
       <a href="https://variety.com/lists/best-movies-streaming-october-2026/" target="_blank" rel="noopener">Variety</a>,
       <a href="https://www.tomsguide.com/entertainment/streaming/missed-it-in-theaters-heres-every-movie-finally-arriving-on-streaming-in-october-2026" target="_blank" rel="noopener">Tom's Guide</a>,
       <a href="https://whatsondisneyplus.com/new-on-disney-october-2026-video-released/" target="_blank" rel="noopener">What's on Disney+</a>,
+      <a href="https://www.whats-on-netflix.com/what-to-watch/netflix-certified-fresh-movies-shows-2026/" target="_blank" rel="noopener">What's on Netflix</a>,
       <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </footer>
 </div>
@@ -212,7 +211,37 @@ var TOP = [
   { t: "Cape Fear", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], s: 77 },
   { t: "People We Meet on Vacation", sub: "2026", type: "movie", p: "Netflix", g: ["Romance", "Comedy"], s: 76 },
   { t: "Avatar: The Last Airbender", sub: "Season 2", type: "show", p: "Netflix", g: ["Fantasy", "Action", "Family"], s: 68, est: 1 },
-  { t: "I Will Find You", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 61, est: 1 }
+  { t: "I Will Find You", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 61, est: 1 },
+  { t: "The Lincoln Lawyer", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 100 },
+  { t: "Heartbreak High", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama", "Comedy"], s: 100 },
+  { t: "Devil May Cry", sub: "Season 2", type: "show", p: "Netflix", g: ["Animation", "Action"], s: 100 },
+  { t: "Legends", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 96 },
+  { t: "How to Get to Heaven From Belfast", sub: "Season 1", type: "show", p: "Netflix", g: ["Comedy", "Suspense"], s: 95 },
+  { t: "Top Gun: Maverick", sub: "2022", type: "movie", p: "Netflix", g: ["Action", "Drama"], s: 96, est: 1 },
+  { t: "Puss in Boots: The Last Wish", sub: "2022", type: "movie", p: "Netflix", g: ["Animation", "Family", "Comedy"], s: 95, est: 1 },
+  { t: "Jo Nesbø's Detective Hole", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 91 },
+  { t: "Running Point", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], s: 90 },
+  { t: "Peaky Blinders: The Immortal Man", sub: "2026", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], s: 90 },
+  { t: "Beef", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy", "Drama"], s: 89 },
+  { t: "The Night Agent", sub: "Season 3", type: "show", p: "Netflix", g: ["Action", "Suspense"], s: 86 },
+  { t: "Something Very Bad Is Going to Happen", sub: "Limited series", type: "show", p: "Netflix", g: ["Horror", "Comedy"], s: 86 },
+  { t: "Run Away", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense"], s: 83 },
+  { t: "Bridgerton", sub: "Season 4", type: "show", p: "Netflix", g: ["Romance", "Drama"], s: 82 },
+  { t: "Remarkably Bright Creatures", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], s: 82 },
+  { t: "Big Mistakes", sub: "Season 1", type: "show", p: "Netflix", g: ["Comedy", "Suspense"], s: 80 },
+  { t: "The Rip", sub: "2026", type: "movie", p: "Netflix", g: ["Suspense", "Action"], s: 78 },
+  { t: "Vladimir", sub: "Season 1", type: "show", p: "Netflix", g: ["Comedy", "Drama"], s: 76 },
+  { t: "Boyfriend on Demand", sub: "Season 1", type: "show", p: "Netflix", g: ["Romance", "Comedy"], s: 71 },
+  { t: "Agatha Christie's Seven Dials", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 71 },
+  { t: "His & Hers", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 70 },
+  { t: "The Ministry of Ungentlemanly Warfare", sub: "2024", type: "movie", p: "Netflix", g: ["Action", "Comedy"], s: 68, est: 1 },
+  { t: "Knock at the Cabin", sub: "2023", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], s: 66, est: 1 },
+  { t: "Those Who Wish Me Dead", sub: "2021", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 62, est: 1 },
+  { t: "Stranger Things: Tales from '85", sub: "Season 1", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Horror"], s: 62 },
+  { t: "Man on Fire", sub: "Season 1", type: "show", p: "Netflix", g: ["Action", "Suspense"], s: 61 },
+  { t: "The Madison", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama"], s: 59, est: 1 },
+  { t: "Scarpetta", sub: "Season 1", type: "show", p: "Prime Video", g: ["Suspense", "Drama"], s: 58, est: 1 },
+  { t: "Elle", sub: "Season 1", type: "show", p: "Prime Video", g: ["Comedy", "Drama"], s: 56, est: 1 }
 ];
 
 var NEW = [
@@ -272,7 +301,11 @@ function matches(i) {
 }
 
 function renderChips() {
-  document.getElementById("mins").innerHTML = [0, 60, 70, 80, 90].map(function (x) { return '<button type="button" class="chip" data-m="' + x + '" aria-pressed="' + (state.min === x) + '">' + (x ? x + "%+" : "Any") + "</button>"; }).join("") + '<span class="count">top rated list only</span>';
+  var pool = TOP.filter(matches);
+  document.getElementById("mins").innerHTML = [0, 60, 70, 80, 90].map(function (x) {
+    var n = pool.filter(function (i) { return i.s >= x; }).length;
+    return '<button type="button" class="chip" data-m="' + x + '" aria-pressed="' + (state.min === x) + '">' + (x ? x + "%+" : "Any") + ' <span class="n">' + n + "</span></button>";
+  }).join("");
   var g = document.getElementById("genres"), p = document.getElementById("plats");
   g.innerHTML = GENRES.map(function (x) { return '<button type="button" class="chip" data-g="' + x + '" aria-pressed="' + (state.genre === x) + '">' + x + "</button>"; }).join("");
   p.innerHTML = PLATS.map(function (x) { return '<button type="button" class="chip" data-p="' + x + '" aria-pressed="' + (state.plat === x) + '">' + dot(x) + x + "</button>"; }).join("");
@@ -280,7 +313,8 @@ function renderChips() {
 
 function renderTop() {
   var rows = TOP.filter(matches).filter(function (i) { return i.s >= state.min; });
-  if (state.sort === "title") rows.sort(function (a, b) { return a.t.localeCompare(b.t); });
+  if (state.sort === "low") rows.sort(function (a, b) { return a.s - b.s || a.t.localeCompare(b.t); });
+  else if (state.sort === "title") rows.sort(function (a, b) { return a.t.localeCompare(b.t); });
   else if (state.sort === "plat") rows.sort(function (a, b) { return a.p.localeCompare(b.p) || b.s - a.s; });
   else rows.sort(function (a, b) { return b.s - a.s || a.t.localeCompare(b.t); });
   document.getElementById("topCount").textContent = rows.length + " of " + TOP.length + " titles";
