@@ -36,6 +36,7 @@
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.45; padding-inline: 16px; padding-block: 0 48px; }
 .wrap { max-width: 980px; margin-inline: auto; }
 h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
@@ -117,15 +118,20 @@ footer p { margin: 0; max-width: 75ch; }
 .fld { display: grid; gap: 3px; min-width: 0; }
 .fld .lbl { min-width: 0; }
 .fld .sel { width: 100%; min-width: 0; }
-.fclear { grid-column: 1 / -1; justify-self: start; }
+.fact { grid-column: 1 / -1; display: flex; align-items: center; }
+.fact .lnk { margin-left: auto; cursor: pointer; }
 /* Phones and narrow windows: one search row plus a Filters button that opens dropdowns. Wider screens keep the full chip menu. */
 @media (max-width: 700px) {
-  .bar { gap: 8px; padding-block: 8px; max-height: 75vh; overflow-y: auto; }
+  .mast { padding-block: 16px 10px; gap: 6px 16px; }
+  .mast .sub { font-size: 13px; margin-top: 6px; }
+  .stamp .tl { display: none; }
+  .jump { margin-top: 2px; }
+  .bar { gap: 0; padding-block: 8px; }
   .bar .wide, #type, #sort, .r1 .lbl { display: none; }
   .r1 { flex-wrap: nowrap; }
   .fbtn { display: inline-flex; }
-  .fpanel { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
-  section { scroll-margin-top: 70px; }
+  .fpanel { position: absolute; top: 100%; left: 0; right: 0; z-index: 6; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 10px 10px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3); }
+  section { scroll-margin-top: 70px; padding-block: 24px 4px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .score .fill { transition: width 0.4s ease; }
@@ -139,7 +145,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 10, 2026</b><br>Today is <b id="today"></b></div>
+      <div class="stamp">Data checked <b>Oct 10, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -170,7 +176,7 @@ footer p { margin: 0; max-width: 75ch; }
       <label class="fld"><span class="lbl">Genre</span><select class="sel" id="mGenre"></select></label>
       <label class="fld"><span class="lbl">Service</span><select class="sel" id="mPlat"></select></label>
       <label class="fld"><span class="lbl">Rating</span><select class="sel" id="mMin"></select></label>
-      <button type="button" class="reset fclear" id="reset2" hidden>Clear filters</button>
+      <div class="fact"><button type="button" class="reset" id="reset2" hidden>Clear filters</button><button type="button" class="lnk" id="fdone">Done</button></div>
     </div>
   </div>
 
@@ -550,6 +556,7 @@ document.getElementById("mGenre").addEventListener("change", function (e) { stat
 document.getElementById("mPlat").addEventListener("change", function (e) { state.plat = e.target.value; render(); });
 document.getElementById("mMin").addEventListener("change", function (e) { state.min = Number(e.target.value); render(); });
 document.getElementById("reset2").addEventListener("click", function () { document.getElementById("reset").click(); });
+document.getElementById("fdone").addEventListener("click", function () { document.getElementById("fpanel").hidden = true; document.getElementById("fbtn").setAttribute("aria-expanded", "false"); });
 
 render();
 document.getElementById("credit").textContent = TMDB_KEY
