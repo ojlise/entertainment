@@ -90,6 +90,7 @@ h3.grp::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .art .at { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .art .tag { position: absolute; top: 5px; left: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; background: rgba(0, 0, 0, 0.6); border-radius: 3px; padding: 1px 4px; }
+.art .newb { position: absolute; top: 5px; right: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; background: #e5a50a; color: #111; border-radius: 3px; padding: 1px 4px; }
 .side { display: grid; justify-items: end; gap: 6px; align-self: start; }
 .plat { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
 .score { font-family: var(--font-mono); font-size: 13px; display: flex; align-items: center; gap: 8px; }
@@ -215,7 +216,7 @@ var PLAT_COLOR = {
   "Disney+": "#2a4bd7", "Apple TV": "#8e8e93", "Peacock": "#f2b600", "Paramount+": "#0064ff", "MGM+": "#c9a227"
 };
 
-/* s = Rotten Tomatoes critics %, est = older title scored from prior knowledge */
+/* s = Rotten Tomatoes critics %, est = older title scored from prior knowledge, added = date first added (shows a NEW badge for 3 days) */
 var TOP = [
   { t: "Silo", sub: "Season 3", type: "show", p: "Apple TV", g: ["Sci-Fi", "Drama"], s: 100 },
   { t: "Invincible", sub: "Season 4", type: "show", p: "Prime Video", g: ["Animation", "Sci-Fi", "Action"], s: 100 },
@@ -279,8 +280,8 @@ var TOP = [
   { t: "The Madison", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama"], s: 59, est: 1 },
   { t: "Scarpetta", sub: "Season 1", type: "show", p: "Prime Video", g: ["Suspense", "Drama"], s: 58, est: 1 },
   { t: "Elle", sub: "Season 1", type: "show", p: "Prime Video", g: ["Comedy", "Drama"], s: 56, est: 1 },
-  { t: "Hokum", sub: "2026", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], s: 96, est: 1 },
-  { t: "Carrie", sub: "Season 1", type: "show", p: "Prime Video", g: ["Horror", "Drama"], s: 85, est: 1 },
+  { t: "Hokum", sub: "2026", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], s: 96, est: 1, added: "2026-10-11" },
+  { t: "Carrie", sub: "Season 1", type: "show", p: "Prime Video", g: ["Horror", "Drama"], s: 85, est: 1, added: "2026-10-11" },
 ];
 
 var NEW = [
@@ -300,19 +301,19 @@ var NEW = [
   { d: "2026-10-14", t: "Love of Your Life", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], b: "Margaret Qualley and Gabriel Basso." },
   { d: "2026-10-14", t: "The Lowdown", sub: "Season 2", type: "show", p: "Disney+", g: ["Drama", "Suspense"], b: "FX series returns with a two-episode premiere." },
   { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns." },
-  { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once." },
+  { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", added: "2026-10-11" },
   { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film." },
   { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe." },
   { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend." },
-  { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season." },
-  { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues." },
+  { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season.", added: "2026-10-11" },
+  { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues.", added: "2026-10-11" },
   { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley." },
-  { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season." },
+  { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season.", added: "2026-10-11" },
   { d: "2026-10-23", t: "The Invite", type: "movie", p: "HBO Max", g: ["Suspense", "Horror"], b: "Olivia Wilde's film, one of the year's best-reviewed.", s: 96 },
   { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride." },
-  { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part." },
+  { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part.", added: "2026-10-11" },
   { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film." },
-  { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season." }
+  { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" }
 ];
 
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
@@ -402,10 +403,16 @@ function trailerUrl(i) {
   return "https://www.youtube.com/results?search_query=" + encodeURIComponent(q + " official trailer");
 }
 function reviewUrl(i) { return "https://www.rottentomatoes.com/search?search=" + encodeURIComponent(i.t); }
+function isFresh(i) {
+  if (!i.added) return false;
+  var a = new Date(i.added + "T00:00:00"), n = new Date();
+  var days = Math.round((new Date(n.getFullYear(), n.getMonth(), n.getDate()) - a) / 86400000);
+  return days >= 0 && days <= 3;
+}
 function artTile(i, tag) {
   var m = META[slug(i)] || {};
   var inner = m.p ? '<img src="https://image.tmdb.org/t/p/w185' + m.p + '" alt="" loading="lazy">' : '<span class="at">' + i.t + "</span>";
-  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span></div>";
+  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span>" + (isFresh(i) ? '<span class="newb">NEW</span>' : "") + "</div>";
 }
 function descText(i) { var m = META[slug(i)] || {}; return m.o || i.b || DESC[i.t] || ""; }
 function linksHtml(i) {
