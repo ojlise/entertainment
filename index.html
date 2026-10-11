@@ -413,7 +413,7 @@ function newTag(i) { return isFresh(i) ? ' <span class="newb">NEW</span>' : ""; 
 function artTile(i, tag) {
   var m = META[slug(i)] || {};
   var inner = m.p ? '<img src="https://image.tmdb.org/t/p/w185' + m.p + '" alt="" loading="lazy">' : '<span class="at">' + i.t + "</span>";
-  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span>" + "</div>";
+  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + (tag ? '<span class="tag">' + tag + "</span>" : "") + "</div>";
 }
 function descText(i) { var m = META[slug(i)] || {}; return m.o || i.b || DESC[i.t] || ""; }
 function linksHtml(i) {
@@ -513,7 +513,7 @@ function newRow(i) {
   if (df < 0) badge = '<span class="badge now">Out now</span>';
   else if (df === 0) badge = '<span class="badge today">Today</span>';
   else badge = '<span class="badge">' + (df === 1 ? "Tomorrow" : "In " + df + " days") + '</span>';
-  return '<li class="item">' + artTile(i, dp.m.toUpperCase() + " " + dp.d) +
+  return '<li class="item">' + artTile(i, "") +
     '<div><h3 class="ttl">' + i.t + newTag(i) + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + dp.w + ", " + dp.m + " " + dp.d + " · " + i.g.join(", ") + '</div>' +
     '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
     '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
