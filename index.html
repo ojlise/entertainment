@@ -90,7 +90,7 @@ h3.grp::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .art .at { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .art .tag { position: absolute; top: 5px; left: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; background: rgba(0, 0, 0, 0.6); border-radius: 3px; padding: 1px 4px; }
-.art .newb { position: absolute; top: 5px; right: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; background: #e5a50a; color: #111; border-radius: 3px; padding: 1px 4px; }
+.newb { display: inline-block; vertical-align: middle; margin-left: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; line-height: 1.4; letter-spacing: 0.04em; background: #e5a50a; color: #111; border-radius: 3px; padding: 1px 5px; }
 .side { display: grid; justify-items: end; gap: 6px; align-self: start; }
 .plat { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
 .score { font-family: var(--font-mono); font-size: 13px; display: flex; align-items: center; gap: 8px; }
@@ -409,10 +409,11 @@ function isFresh(i) {
   var days = Math.round((new Date(n.getFullYear(), n.getMonth(), n.getDate()) - a) / 86400000);
   return days >= 0 && days <= 3;
 }
+function newTag(i) { return isFresh(i) ? ' <span class="newb">NEW</span>' : ""; }
 function artTile(i, tag) {
   var m = META[slug(i)] || {};
   var inner = m.p ? '<img src="https://image.tmdb.org/t/p/w185' + m.p + '" alt="" loading="lazy">' : '<span class="at">' + i.t + "</span>";
-  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span>" + (isFresh(i) ? '<span class="newb">NEW</span>' : "") + "</div>";
+  return '<div class="art" style="--pc:' + (PLAT_COLOR[i.p] || "#666") + '">' + inner + '<span class="tag">' + tag + "</span>" + "</div>";
 }
 function descText(i) { var m = META[slug(i)] || {}; return m.o || i.b || DESC[i.t] || ""; }
 function linksHtml(i) {
@@ -500,7 +501,7 @@ function renderTop() {
   if (!rows.length) { el.innerHTML = '<li class="empty">Nothing matches these filters. Try clearing one.</li>'; return; }
   el.innerHTML = rows.map(function (i, n) {
     return '<li class="item">' + artTile(i, String(n + 1).padStart(2, "0")) +
-      '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div>' +
+      '<div><h3 class="ttl">' + i.t + newTag(i) + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div>' +
       '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
       '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
       '<span class="score"><span class="track"><span class="fill" style="width:' + i.s + '%"></span></span>' + i.s + '%' + (i.est ? "<sup>†</sup>" : "") + '</span></div></li>';
@@ -513,7 +514,7 @@ function newRow(i) {
   else if (df === 0) badge = '<span class="badge today">Today</span>';
   else badge = '<span class="badge">' + (df === 1 ? "Tomorrow" : "In " + df + " days") + '</span>';
   return '<li class="item">' + artTile(i, dp.m.toUpperCase() + " " + dp.d) +
-    '<div><h3 class="ttl">' + i.t + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + dp.w + ", " + dp.m + " " + dp.d + " · " + i.g.join(", ") + '</div>' +
+    '<div><h3 class="ttl">' + i.t + newTag(i) + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + dp.w + ", " + dp.m + " " + dp.d + " · " + i.g.join(", ") + '</div>' +
     '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
     '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
     (i.s ? '<span class="score">' + i.s + '%</span>' : "") + badge + '</div></li>';
