@@ -146,7 +146,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 11, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 12, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -281,21 +281,35 @@ var TOP = [
   { t: "Scarpetta", sub: "Season 1", type: "show", p: "Prime Video", g: ["Suspense", "Drama"], s: 58, est: 1 },
   { t: "Elle", sub: "Season 1", type: "show", p: "Prime Video", g: ["Comedy", "Drama"], s: 56, est: 1 },
   { t: "Hokum", sub: "2026", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], s: 96, est: 1, added: "2026-10-11" },
-  { t: "Carrie", sub: "Season 1", type: "show", p: "Prime Video", g: ["Horror", "Drama"], s: 85, est: 1, added: "2026-10-11" },
+  { t: "Carrie", sub: "Season 1", type: "show", p: "Prime Video", g: ["Horror", "Drama"], s: 85, added: "2026-10-11" },
+  { t: "East of Eden", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama"], s: 89, added: "2026-10-12" },
+  { t: "Below", sub: "Limited series", type: "show", p: "Netflix", g: ["Suspense", "Horror"], s: 81, added: "2026-10-12" },
+  { t: "Disclosure Day", sub: "2026", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], s: 80, added: "2026-10-12" },
+  { t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], s: 87, added: "2026-10-12" },
+  { t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], s: 100, added: "2026-10-12" },
+  { t: "Moonlight", sub: "2016", type: "movie", p: "Netflix", g: ["Drama"], s: 98, added: "2026-10-12" },
+  { t: "Psycho", sub: "1960", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], s: 97, added: "2026-10-12" },
+  { t: "Call Me by Your Name", sub: "2017", type: "movie", p: "Netflix", g: ["Drama", "Romance"], s: 95, added: "2026-10-12" },
+  { t: "The Bourne Ultimatum", sub: "2007", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 92, added: "2026-10-12" },
+  { t: "Dallas Buyers Club", sub: "2013", type: "movie", p: "Netflix", g: ["Drama"], s: 92, added: "2026-10-12" },
 ];
 
 var NEW = [
-  { d: "2026-10-02", t: "East of Eden", type: "show", p: "Netflix", g: ["Drama"], b: "Steinbeck's novel as a limited series, with Florence Pugh." },
+  { d: "2026-10-01", t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A British legal drama about a tech founder's divorce and the law firms on each side.", s: 87, added: "2026-10-12" },
+  { d: "2026-10-02", t: "East of Eden", type: "show", p: "Netflix", g: ["Drama"], b: "Steinbeck's novel as a limited series, with Florence Pugh.", s: 89 },
   { d: "2026-10-02", t: "Evil Dead Burn", type: "movie", p: "HBO Max", g: ["Horror"], b: "The latest Evil Dead film, in time for Halloween." },
   { d: "2026-10-02", t: "Wuthering Heights", type: "movie", p: "Prime Video", g: ["Drama", "Romance"], b: "The 2026 film adaptation." },
-  { d: "2026-10-02", t: "Coven Academy", type: "show", p: "Disney+", g: ["Drama"], b: "New teen drama, all episodes at once." },
+  { d: "2026-10-02", t: "Coven Academy", type: "show", p: "Disney+", g: ["Drama"], b: "New teen drama, all episodes at once.", s: 100 },
   { d: "2026-10-03", t: "Tyler Perry's Doing Life", type: "movie", p: "Netflix", g: ["Romance", "Drama"], b: "A Netflix romance from Tyler Perry." },
   { d: "2026-10-04", t: "Marshals", sub: "Season 2", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "Second season, airing on CBS and streaming on Paramount+." },
   { d: "2026-10-06", t: "Reasonable Doubt", sub: "Season 4", type: "show", p: "Hulu", g: ["Drama"], b: "Three-episode season premiere." },
-  { d: "2026-10-07", t: "Carrie", type: "show", p: "Prime Video", g: ["Horror", "Drama"], b: "Mike Flanagan's eight-episode take on the Stephen King story." },
+  { d: "2026-10-07", t: "Carrie", type: "show", p: "Prime Video", g: ["Horror", "Drama"], b: "Mike Flanagan's eight-episode take on the Stephen King story.", s: 85 },
   { d: "2026-10-08", t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], b: "Season 6 premiere." },
-  { d: "2026-10-09", t: "Animals", type: "movie", p: "Netflix", g: ["Suspense"], b: "Ben Affleck directs and stars as a mayoral candidate whose son is kidnapped." },
-  { d: "2026-10-09", t: "Disclosure Day", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], b: "Steven Spielberg's alien thriller, with Emily Blunt and Josh O'Connor." },
+  { d: "2026-10-08", t: "Below", type: "show", p: "Netflix", g: ["Suspense", "Horror"], b: "A Newfoundland town is threatened by something in the sea in this mystery thriller series.", s: 81, added: "2026-10-12" },
+  { d: "2026-10-08", t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], b: "A Silicon Valley legal drama about lawyers representing people harmed by tech elites.", s: 100, added: "2026-10-12" },
+  { d: "2026-10-09", t: "Animals", type: "movie", p: "Netflix", g: ["Suspense"], b: "Ben Affleck directs and stars as a mayoral candidate whose son is kidnapped.", s: 44 },
+  { d: "2026-10-09", t: "Disclosure Day", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], b: "Steven Spielberg's alien thriller, with Emily Blunt and Josh O'Connor.", s: 80 },
+  { d: "2026-10-09", t: "Matchbox The Movie", type: "movie", p: "Apple TV", g: ["Family", "Action"], b: "A big-screen toy-car adventure from Apple.", added: "2026-10-12" },
   { d: "2026-10-10", t: "Hokum", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], b: "Neon horror with Adam Scott, streaming for the first time." },
   { d: "2026-10-14", t: "VisionQuest", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], b: "Paul Bettany's Marvel series, new episodes on Wednesdays." },
   { d: "2026-10-14", t: "Love of Your Life", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], b: "Margaret Qualley and Gabriel Basso." },
@@ -303,17 +317,20 @@ var NEW = [
   { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns." },
   { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", added: "2026-10-11" },
   { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film." },
-  { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe." },
+  { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe.", s: 100 },
   { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend." },
   { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season.", added: "2026-10-11" },
+  { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", added: "2026-10-12" },
   { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues.", added: "2026-10-11" },
+  { d: "2026-10-20", t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], b: "A comedy-mystery starring Connie Britton as a woman whose identity is in question.", added: "2026-10-12" },
   { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley." },
   { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season.", added: "2026-10-11" },
   { d: "2026-10-23", t: "The Invite", type: "movie", p: "HBO Max", g: ["Suspense", "Horror"], b: "Olivia Wilde's film, one of the year's best-reviewed.", s: 96 },
   { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride." },
   { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part.", added: "2026-10-11" },
   { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film." },
-  { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" }
+  { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" },
+  { d: "2026-10-30", t: "Nocturne", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], b: "A crime drama based on Lars Kepler novels, centered on a manhunt for a serial killer.", added: "2026-10-12" }
 ];
 
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
@@ -388,7 +405,17 @@ var DESC = {
   "Scarpetta": "Medical examiner Kay Scarpetta investigates a string of murders.",
   "Elle": "A prequel that follows Elle Woods in high school.",
   "Hokum": "An Irish folk-horror film starring Adam Scott.",
-  "Carrie": "A new series adaptation of Stephen King's story about a bullied teenager with telekinetic powers."
+  "Carrie": "A new series adaptation of Stephen King's story about a bullied teenager with telekinetic powers.",
+  "East of Eden": "Steinbeck's novel becomes a limited series about two families across several decades in California.",
+  "Below": "A small Newfoundland town is rattled by a creature in the sea, and a few locals try to work out what it is.",
+  "Disclosure Day": "Steven Spielberg's science-fiction thriller about contact from beyond Earth.",
+  "War": "A British legal drama about a divorce between a tech founder and his spouse, and the law firms on each side.",
+  "Cupertino": "A legal drama set in Silicon Valley, where lawyers take on cases for people harmed by powerful tech figures.",
+  "Moonlight": "A young man's life is told in three chapters as he grows up in Miami and works out who he is.",
+  "Psycho": "A woman on the run stops at a roadside motel with a very odd owner. Hitchcock's classic.",
+  "Call Me by Your Name": "A summer romance between a teenager and a visiting scholar in 1980s Italy.",
+  "The Bourne Ultimatum": "Jason Bourne closes in on the truth about his past while agents hunt him across several countries.",
+  "Dallas Buyers Club": "A Texas man diagnosed with HIV in the 1980s starts smuggling in unapproved treatments."
 };
 
 var META = {};
