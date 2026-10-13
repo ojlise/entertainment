@@ -89,6 +89,7 @@ h3.grp::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .art { position: relative; width: 100%; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; display: flex; align-items: flex-end; padding: 6px; color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 11px; line-height: 1.1; background: linear-gradient(165deg, color-mix(in srgb, var(--pc) 55%, #000), color-mix(in srgb, var(--pc) 22%, #000)); }
 .art .at { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.rk { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--muted, #888); margin-right: 8px; font-variant-numeric: tabular-nums; }
 .art .tag { position: absolute; top: 5px; left: 5px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; background: rgba(0, 0, 0, 0.6); border-radius: 3px; padding: 1px 4px; }
 .newb { display: inline-block; vertical-align: middle; margin-left: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; line-height: 1.4; letter-spacing: 0.04em; background: #e5a50a; color: #111; border-radius: 3px; padding: 1px 5px; }
 .side { display: grid; justify-items: end; gap: 6px; align-self: start; }
@@ -530,8 +531,8 @@ function renderTop() {
   var el = document.getElementById("topList");
   if (!rows.length) { el.innerHTML = '<li class="empty">Nothing matches these filters. Try clearing one.</li>'; return; }
   el.innerHTML = rows.map(function (i, n) {
-    return '<li class="item">' + artTile(i, String(n + 1).padStart(2, "0")) +
-      '<div><h3 class="ttl">' + i.t + newTag(i) + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div>' +
+    return '<li class="item">' + artTile(i, "") +
+      '<div><h3 class="ttl"><span class="rk">' + String(n + 1).padStart(2, "0") + '</span>' + i.t + newTag(i) + '</h3><div class="meta">' + typeLabel(i) + (i.sub ? " · " + i.sub : "") + " · " + i.g.join(", ") + '</div>' +
       '<div class="desc">' + descText(i) + '</div>' + linksHtml(i) + '</div>' +
       '<div class="side"><span class="plat">' + dot(i.p) + i.p + '</span>' +
       '<span class="score"><span class="track"><span class="fill" style="width:' + i.s + '%"></span></span>' + i.s + '%' + (i.est ? "<sup>†</sup>" : "") + '</span></div></li>';
