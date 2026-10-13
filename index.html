@@ -146,7 +146,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 12, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 13, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -292,6 +292,7 @@ var TOP = [
   { t: "Call Me by Your Name", sub: "2017", type: "movie", p: "Netflix", g: ["Drama", "Romance"], s: 95, added: "2026-10-12" },
   { t: "The Bourne Ultimatum", sub: "2007", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 92, added: "2026-10-12" },
   { t: "Dallas Buyers Club", sub: "2013", type: "movie", p: "Netflix", g: ["Drama"], s: 92, added: "2026-10-12" },
+  { t: "Tenzing", sub: "2026", type: "movie", p: "Apple TV", g: ["Drama", "Action"], s: 100, added: "2026-10-13" },
 ];
 
 var NEW = [
@@ -316,11 +317,12 @@ var NEW = [
   { d: "2026-10-14", t: "The Lowdown", sub: "Season 2", type: "show", p: "Disney+", g: ["Drama", "Suspense"], b: "FX series returns with a two-episode premiere." },
   { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns." },
   { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", added: "2026-10-11" },
-  { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film." },
+  { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film.", s: 43, added: "2026-10-13" },
   { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe.", s: 100 },
   { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend." },
+  { d: "2026-10-16", t: "Norm: The Tale of Norm Macdonald", type: "movie", p: "Netflix", g: ["Comedy"], b: "A Netflix documentary about the late comedian Norm Macdonald.", added: "2026-10-13" },
   { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season.", added: "2026-10-11" },
-  { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", added: "2026-10-12" },
+  { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", s: 36, added: "2026-10-12" },
   { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues.", added: "2026-10-11" },
   { d: "2026-10-20", t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], b: "A comedy-mystery starring Connie Britton as a woman whose identity is in question.", added: "2026-10-12" },
   { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley." },
@@ -370,6 +372,7 @@ var DESC = {
   "Nope": "Siblings on a California horse ranch run into something strange in the sky.",
   "DTF St. Louis": "A murder mystery tangled up in a midwestern dating scene.",
   "Rooster": "Steve Carell plays an author who visits his daughter on a college campus.",
+  "Tenzing": "A drama about Tenzing Norgay and Edmund Hillary's 1953 climb to the summit of Mount Everest.",
   "Cape Fear": "A new series inspired by the classic thriller about a lawyer stalked by a vengeful former client.",
   "People We Meet on Vacation": "Two best friends take a trip together every summer and start to wonder if they are more.",
   "Avatar: The Last Airbender": "Aang keeps learning the elements on his journey to stop the Fire Lord.",
