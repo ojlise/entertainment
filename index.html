@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 15, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 16, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -297,6 +297,9 @@ var TOP = [
   { t: "VisionQuest", sub: "Season 1", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], s: 82, added: "2026-10-14" },
   { t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], s: 78, added: "2026-10-14" },
   { t: "Love of Your Life", sub: "2026", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], s: 78, added: "2026-10-14" },
+  { t: "The Bride!", sub: "2026", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], s: 57, added: "2026-10-16" },
+  { t: "The Death of Robin Hood", sub: "2026", type: "movie", p: "HBO Max", g: ["Drama", "Action"], s: 65, added: "2026-10-16" },
+  { t: "Nobody Wants This", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy", "Romance"], s: 80, added: "2026-10-16" },
 ];
 
 var NEW = [
@@ -328,7 +331,7 @@ var NEW = [
   { d: "2026-10-21", t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], b: "Second season of the Apple TV series premieres.", added: "2026-10-15" },
   { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film.", s: 43, added: "2026-10-13" },
   { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe.", s: 100 },
-  { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend." },
+  { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend.", s: 65 },
   { d: "2026-10-16", t: "Norm: The Tale of Norm Macdonald", type: "movie", p: "Netflix", g: ["Comedy"], b: "A Netflix documentary about the late comedian Norm Macdonald.", added: "2026-10-13" },
   { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season.", added: "2026-10-11" },
   { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", s: 38, added: "2026-10-12" },
@@ -338,12 +341,21 @@ var NEW = [
   { d: "2026-10-21", t: "Moana", sub: "2026", type: "movie", p: "Disney+", g: ["Family", "Fantasy"], b: "Disney's live-action remake of its animated adventure arrives on streaming.", s: 33, added: "2026-10-14" },
   { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season.", added: "2026-10-11" },
   { d: "2026-10-23", t: "The Invite", type: "movie", p: "HBO Max", g: ["Suspense", "Horror"], b: "Olivia Wilde's film, one of the year's best-reviewed.", s: 96 },
-  { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride." },
+  { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride.", s: 57 },
   { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part.", added: "2026-10-11" },
   { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film." },
   { d: "2026-10-27", t: "Dangerous Liaisons", sub: "Season 1", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A new Netflix series that takes its name from the classic tale of scheming and seduction.", added: "2026-10-14" },
   { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" },
-  { d: "2026-10-30", t: "Nocturne", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], b: "A crime drama based on Lars Kepler novels, centered on a manhunt for a serial killer.", added: "2026-10-12" }
+  { d: "2026-10-30", t: "Nocturne", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], b: "A crime drama based on Lars Kepler novels, centered on a manhunt for a serial killer.", added: "2026-10-12" },
+  { d: "2026-10-16", t: "The Disciple", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], b: "A documentary about the making of the Wu-Tang Clan album Once Upon a Time in Shaolin.", added: "2026-10-16" },
+  { d: "2026-10-16", t: "Masterplan", sub: "2026", type: "movie", p: "Prime Video", g: ["Comedy", "Suspense"], b: "Stanley Tucci plays a master thief who recruits his long-lost children for a Mona Lisa heist.", added: "2026-10-16" },
+  { d: "2026-10-21", t: "The New Stanford Prison Experiment", sub: "Season 1", type: "show", p: "Netflix", g: ["Drama"], b: "A modern reimagining in which 30 people live inside a real prison for two weeks.", added: "2026-10-16" },
+  { d: "2026-10-23", t: "Paralyzed by Hope: The Maria Bamford Story", type: "movie", p: "Netflix", g: ["Comedy"], b: "A documentary feature about comedian Maria Bamford.", added: "2026-10-16" },
+  { d: "2026-10-27", t: "The One About Matthew Perry", sub: "Season 1", type: "show", p: "Netflix", g: ["Drama"], b: "A docuseries looking back at the life and legacy of the Friends star.", added: "2026-10-16" },
+  { d: "2026-10-29", t: "You, Me, Us", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], b: "An Italian drama about a couple going through the adoption process.", added: "2026-10-16" },
+  { d: "2026-10-30", t: "A Couple of Lies", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "A Swedish Nordic noir in which two couples swap homes.", added: "2026-10-16" },
+  { d: "2026-10-30", t: "Collision Course", sub: "2026", type: "movie", p: "Netflix", g: ["Suspense"], b: "A thriller from Spanish director Daniel Sánchez Arévalo.", added: "2026-10-16" },
+  { d: "2026-10-30", t: "Apocalypse Z: New World", sub: "2026", type: "movie", p: "Prime Video", g: ["Action", "Sci-Fi"], b: "A post-apocalyptic action sequel arriving on Prime Video.", added: "2026-10-16" }
 ];
 
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
@@ -355,6 +367,9 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "The Bride!": "A scientist revives a murdered woman as a companion for a legendary creature, and the aftermath goes in unexpected directions.",
+  "The Death of Robin Hood": "Hugh Jackman stars in a grim, R-rated take on the Robin Hood legend.",
+  "Nobody Wants This": "A rom-com with Kristen Bell and Adam Brody about an unlikely relationship.",
   "Silo": "Thousands live in a giant underground silo, and an engineer starts uncovering the truth behind its rules.",
   "Invincible": "A teenager inherits his father's powers, and the superhero life turns out darker than he expected. Animated.",
   "One Piece": "Luffy and his Straw Hat crew sail the Grand Line in the live-action version of the hit manga.",
