@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 16, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 17, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -300,6 +300,8 @@ var TOP = [
   { t: "The Bride!", sub: "2026", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], s: 57, added: "2026-10-16" },
   { t: "The Death of Robin Hood", sub: "2026", type: "movie", p: "HBO Max", g: ["Drama", "Action"], s: 65, added: "2026-10-16" },
   { t: "Nobody Wants This", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy", "Romance"], s: 80, added: "2026-10-16" },
+  { t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 100, added: "2026-10-17" },
+  { t: "American Horror Story", sub: "Season 13", type: "show", p: "Hulu", g: ["Horror", "Suspense"], s: 75, added: "2026-10-17" },
 ];
 
 var NEW = [
@@ -322,7 +324,7 @@ var NEW = [
   { d: "2026-10-14", t: "VisionQuest", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], b: "Paul Bettany's Marvel series, new episodes on Wednesdays.", s: 82 },
   { d: "2026-10-14", t: "Love of Your Life", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], b: "Margaret Qualley and Gabriel Basso.", s: 78 },
   { d: "2026-10-14", t: "The Lowdown", sub: "Season 2", type: "show", p: "Disney+", g: ["Drama", "Suspense"], b: "FX series returns with a two-episode premiere." },
-  { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns." },
+  { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns.", s: 100 },
   { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", s: 78, added: "2026-10-11" },
   { d: "2026-10-15", t: "Transformers One", sub: "2024", type: "movie", p: "Netflix", g: ["Animation", "Action", "Family"], b: "The animated origin story of Optimus Prime and Megatron arrives on Netflix.", added: "2026-10-15" },
   { d: "2026-10-16", t: "Heat", sub: "1995", type: "movie", p: "Netflix", g: ["Action", "Suspense"], b: "Michael Mann's cops-and-robbers crime classic joins Netflix.", added: "2026-10-15" },
@@ -355,6 +357,16 @@ var NEW = [
   { d: "2026-10-29", t: "You, Me, Us", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], b: "An Italian drama about a couple going through the adoption process.", added: "2026-10-16" },
   { d: "2026-10-30", t: "A Couple of Lies", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "A Swedish Nordic noir in which two couples swap homes.", added: "2026-10-16" },
   { d: "2026-10-30", t: "Collision Course", sub: "2026", type: "movie", p: "Netflix", g: ["Suspense"], b: "A thriller from Spanish director Daniel Sánchez Arévalo.", added: "2026-10-16" },
+  { d: "2026-10-01", t: "American Horror Story", sub: "Season 13", type: "show", p: "Hulu", g: ["Horror", "Suspense"], b: "The anthology horror series returns with a new season, with new episodes weekly.", s: 75, added: "2026-10-17" },
+  { d: "2026-10-17", t: "The Amateur", sub: "2025", type: "movie", p: "HBO Max", g: ["Action", "Suspense"], b: "A spy thriller starring Rami Malek arrives on HBO Max.", added: "2026-10-17" },
+  { d: "2026-10-19", t: "The Crow", sub: "2024", type: "movie", p: "Peacock", g: ["Action", "Fantasy", "Horror"], b: "A reboot of the gothic revenge story joins Peacock.", added: "2026-10-17" },
+  { d: "2026-10-19", t: "Migration", sub: "2023", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "An animated family comedy about a family of ducks who set off on a big journey.", added: "2026-10-17" },
+  { d: "2026-10-20", t: "Blindspotting", sub: "Seasons 1-2", type: "show", p: "Netflix", g: ["Comedy", "Drama"], b: "Both seasons of the Oakland-set comedy-drama arrive on Netflix.", added: "2026-10-17" },
+  { d: "2026-10-20", t: "Anyone But You", sub: "2023", type: "movie", p: "HBO Max", g: ["Romance", "Comedy"], b: "A romantic comedy with Sydney Sweeney and Glen Powell arrives on HBO Max.", added: "2026-10-17" },
+  { d: "2026-10-21", t: "Gladiator II", sub: "2024", type: "movie", p: "Netflix", g: ["Action", "Drama"], b: "The Roman arena sequel joins Netflix alongside the original film.", added: "2026-10-17" },
+  { d: "2026-10-22", t: "Bottle Shock", type: "movie", p: "Netflix", g: ["Comedy", "Drama"], b: "A film about the California wine world joins Netflix.", added: "2026-10-17" },
+  { d: "2026-10-26", t: "The Mob", sub: "Season 1", type: "show", p: "Hulu", g: ["Drama", "Suspense"], b: "A new Hulu original series premieres.", added: "2026-10-17" },
+  { d: "2026-10-29", t: "Cannibal Poet", type: "show", p: "HBO Max", g: ["Suspense", "Drama"], b: "A new HBO series premieres.", added: "2026-10-17" },
   { d: "2026-10-30", t: "Apocalypse Z: New World", sub: "2026", type: "movie", p: "Prime Video", g: ["Action", "Sci-Fi"], b: "A post-apocalyptic action sequel arriving on Prime Video.", added: "2026-10-16" }
 ];
 
@@ -367,6 +379,8 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "The Diplomat": "A veteran diplomat navigates high-stakes political crises in this Netflix thriller.",
+  "American Horror Story": "The long-running anthology series returns with a new self-contained horror season.",
   "The Bride!": "A scientist revives a murdered woman as a companion for a legendary creature, and the aftermath goes in unexpected directions.",
   "The Death of Robin Hood": "Hugh Jackman stars in a grim, R-rated take on the Robin Hood legend.",
   "Nobody Wants This": "A rom-com with Kristen Bell and Adam Brody about an unlikely relationship.",
