@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 19, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 20, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -303,6 +303,7 @@ var TOP = [
   { t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 100, added: "2026-10-17" },
   { t: "American Horror Story", sub: "Season 13", type: "show", p: "Hulu", g: ["Horror", "Suspense"], s: 75, added: "2026-10-17" },
   { t: "Last Breath", sub: "2025", type: "movie", p: "Hulu", g: ["Suspense", "Action"], s: 78, added: "2026-10-18" },
+  { t: "Lord of the Flies", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 92, added: "2026-10-20" },
 ];
 
 var NEW = [
@@ -381,7 +382,16 @@ var NEW = [
   { d: "2026-10-26", t: "Minimum Wage", sub: "Season 1", type: "show", p: "Netflix", g: ["Comedy", "Family"], b: "Teens run a local pizzeria while juggling school and a demanding boss.", added: "2026-10-19" },
   { d: "2026-10-28", t: "Champions", sub: "2023", type: "movie", p: "Netflix", g: ["Comedy", "Family"], b: "A hotheaded minor-league coach is assigned to manage a team of players with intellectual disabilities.", added: "2026-10-19" },
   { d: "2026-10-29", t: "Ghosts", sub: "Season 6 Halloween Special", type: "show", p: "Paramount+", g: ["Comedy", "Fantasy"], b: "The Halloween special for the supernatural sitcom lands on Paramount+.", added: "2026-10-19" },
-  { d: "2026-10-30", t: "Apocalypse Z: New World", sub: "2026", type: "movie", p: "Prime Video", g: ["Action", "Sci-Fi"], b: "A post-apocalyptic action sequel arriving on Prime Video.", added: "2026-10-16" }
+  { d: "2026-10-30", t: "Apocalypse Z: New World", sub: "2026", type: "movie", p: "Prime Video", g: ["Action", "Sci-Fi"], b: "A post-apocalyptic action sequel arriving on Prime Video.", added: "2026-10-16" },
+  { d: "2026-10-23", t: "Surviving Hurricane Otis", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], b: "Two half-brothers fight to stay alive when Hurricane Otis hits Acapulco.", added: "2026-10-20" },
+  { d: "2026-10-23", t: "Last One Laughing: Halloween", type: "show", p: "Prime Video", g: ["Comedy"], b: "A Halloween-themed edition of the comedians-try-not-to-laugh competition.", added: "2026-10-20" },
+  { d: "2026-10-25", t: "My Happy Marriage", sub: "Season 3", type: "show", p: "Netflix", g: ["Animation", "Romance", "Fantasy"], b: "The anime romance fantasy continues with a third season.", added: "2026-10-20" },
+  { d: "2026-10-27", t: "Zainab Johnson: Toxically Optimistic", sub: "2026", type: "movie", p: "Netflix", g: ["Comedy"], b: "A stand-up special from comedian Zainab Johnson.", added: "2026-10-20" },
+  { d: "2026-10-27", t: "Classroom of the Elite", sub: "Season 1", type: "show", p: "Hulu", g: ["Animation", "Drama"], b: "The anime about a school where students compete for status arrives with its full first season.", added: "2026-10-20" },
+  { d: "2026-10-27", t: "The God of High School", sub: "Season 1", type: "show", p: "Hulu", g: ["Animation", "Action", "Fantasy"], b: "The martial-arts tournament anime arrives with its full first season.", added: "2026-10-20" },
+  { d: "2026-10-29", t: "Balaraw: Blood Island", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Horror"], b: "A woman searching for her missing mother is drawn to a sinister island.", added: "2026-10-20" },
+  { d: "2026-10-30", t: "The Birthday Gift", sub: "2026", type: "movie", p: "Netflix", g: ["Comedy"], b: "A German comedy in which a children's birthday party spirals out of control over a toy gun.", added: "2026-10-20" },
+  { d: "2026-10-30", t: "SCTV: The Greatest Show You've Never Heard Of", sub: "2026", type: "movie", p: "Netflix", g: ["Comedy"], b: "A documentary about the sketch comedy series SCTV.", added: "2026-10-20" }
 ];
 
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
@@ -393,6 +403,7 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "Lord of the Flies": "Schoolboys stranded on a remote island slide from cooperation into chaos in this adaptation of the classic novel.",
   "The Diplomat": "A veteran diplomat navigates high-stakes political crises in this Netflix thriller.",
   "American Horror Story": "The long-running anthology series returns with a new self-contained horror season.",
   "The Bride!": "A scientist revives a murdered woman as a companion for a legendary creature, and the aftermath goes in unexpected directions.",
