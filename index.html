@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 21, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 22, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -304,6 +304,8 @@ var TOP = [
   { t: "American Horror Story", sub: "Season 13", type: "show", p: "Hulu", g: ["Horror", "Suspense"], s: 75, added: "2026-10-17" },
   { t: "Last Breath", sub: "2025", type: "movie", p: "Hulu", g: ["Suspense", "Action"], s: 78, added: "2026-10-18" },
   { t: "Lord of the Flies", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 92, added: "2026-10-20" },
+  { t: "Heat", sub: "1995", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 84, added: "2026-10-22" },
+  { t: "Gladiator", sub: "2000", type: "movie", p: "Netflix", g: ["Action", "Drama"], s: 80, added: "2026-10-22" },
 ];
 
 var NEW = [
@@ -329,12 +331,12 @@ var NEW = [
   { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns.", s: 100 },
   { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", s: 78, added: "2026-10-11" },
   { d: "2026-10-15", t: "Transformers One", sub: "2024", type: "movie", p: "Netflix", g: ["Animation", "Action", "Family"], b: "The animated origin story of Optimus Prime and Megatron arrives on Netflix.", added: "2026-10-15" },
-  { d: "2026-10-16", t: "Heat", sub: "1995", type: "movie", p: "Netflix", g: ["Action", "Suspense"], b: "Michael Mann's cops-and-robbers crime classic joins Netflix.", added: "2026-10-15" },
+  { d: "2026-10-16", t: "Heat", sub: "1995", type: "movie", p: "Netflix", g: ["Action", "Suspense"], b: "Michael Mann's cops-and-robbers crime classic joins Netflix.", s: 84, added: "2026-10-15" },
   { d: "2026-10-18", t: "Wolf Man", sub: "2025", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], b: "A man brings his family to his childhood home, where a creature attacks and he begins to change.", s: 47, added: "2026-10-18" },
   { d: "2026-10-18", t: "Companion", sub: "2025", type: "movie", p: "Hulu", g: ["Horror", "Sci-Fi", "Suspense"], b: "A sci-fi horror thriller about a weekend getaway that goes wrong, now on Hulu.", added: "2026-10-15" },
   { d: "2026-10-19", t: "Love in Disguise", sub: "2026", type: "show", p: "Prime Video", g: ["Romance", "Comedy"], b: "A new romance series arriving on Prime Video.", added: "2026-10-18" },
   { d: "2026-10-25", t: "Last Breath", sub: "2025", type: "movie", p: "Hulu", g: ["Suspense", "Action"], b: "Deep-sea divers race to rescue a trapped teammate in this true-story survival drama.", s: 78, added: "2026-10-18" },
-  { d: "2026-10-21", t: "Gladiator", sub: "2000", type: "movie", p: "Netflix", g: ["Action", "Drama"], b: "Ridley Scott's Roman arena epic arrives on Netflix, along with its sequel.", added: "2026-10-15" },
+  { d: "2026-10-21", t: "Gladiator", sub: "2000", type: "movie", p: "Netflix", g: ["Action", "Drama"], b: "Ridley Scott's Roman arena epic arrives on Netflix, along with its sequel.", s: 80, added: "2026-10-15" },
   { d: "2026-10-21", t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], b: "Second season of the Apple TV series premieres.", added: "2026-10-15" },
   { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film.", s: 43, added: "2026-10-13" },
   { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe.", s: 98 },
@@ -344,14 +346,14 @@ var NEW = [
   { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", s: 38, added: "2026-10-12" },
   { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues.", added: "2026-10-11" },
   { d: "2026-10-20", t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], b: "A comedy-mystery starring Connie Britton as a woman whose identity is in question.", added: "2026-10-12" },
-  { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley." },
+  { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley.", s: 67 },
   { d: "2026-10-21", t: "Moana", sub: "2026", type: "movie", p: "Disney+", g: ["Family", "Fantasy"], b: "Disney's live-action remake of its animated adventure arrives on streaming.", s: 33, added: "2026-10-14" },
   { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season.", added: "2026-10-11" },
   { d: "2026-10-23", t: "The Invite", type: "movie", p: "HBO Max", g: ["Comedy", "Drama"], b: "Olivia Wilde directs and stars in an A24 comedy about a dinner with upstairs neighbors that turns revealing.", s: 96 },
   { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride.", s: 57 },
   { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part.", added: "2026-10-11" },
   { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film." },
-  { d: "2026-10-27", t: "Dangerous Liaisons", sub: "Season 1", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A new Netflix series that takes its name from the classic tale of scheming and seduction.", added: "2026-10-14" },
+  { d: "2026-10-27", t: "Dangerous Liaisons", sub: "2022", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A prequel-style period drama about how two scheming young lovers met in Paris on the eve of the French Revolution; it first aired on Starz.", s: 47, added: "2026-10-14" },
   { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" },
   { d: "2026-10-30", t: "Nocturne", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], b: "A crime drama based on Lars Kepler novels, centered on a manhunt for a serial killer.", added: "2026-10-12" },
   { d: "2026-10-16", t: "The Disciple", sub: "2026", type: "movie", p: "Netflix", g: ["Drama"], b: "A documentary about the making of the Wu-Tang Clan album Once Upon a Time in Shaolin.", added: "2026-10-16" },
@@ -391,6 +393,9 @@ var NEW = [
   { d: "2026-10-27", t: "The God of High School", sub: "Season 1", type: "show", p: "Hulu", g: ["Animation", "Action", "Fantasy"], b: "The martial-arts tournament anime arrives with its full first season.", added: "2026-10-20" },
   { d: "2026-10-29", t: "Balaraw: Blood Island", sub: "Season 1", type: "show", p: "Netflix", g: ["Suspense", "Horror"], b: "A woman searching for her missing mother is drawn to a sinister island.", added: "2026-10-20" },
   { d: "2026-10-30", t: "The Birthday Gift", sub: "2026", type: "movie", p: "Netflix", g: ["Comedy"], b: "A German comedy in which a children's birthday party spirals out of control over a toy gun.", added: "2026-10-20" },
+  { d: "2026-10-22", t: "Swipe Right on the Devil", sub: "Season 1", type: "show", p: "Hulu", g: ["Suspense", "Drama"], b: "A three-part true-crime docuseries about the disappearance of Sydney Loofe after a Tinder date.", added: "2026-10-22" },
+  { d: "2026-10-22", t: "The Flores Massacre", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A new documentary series arriving on HBO Max.", added: "2026-10-22" },
+  { d: "2026-10-30", t: "Akka", sub: "Season 1", type: "show", p: "Netflix", g: ["Drama"], b: "A new Netflix series premiering at the end of the month.", added: "2026-10-22" },
   { d: "2026-10-30", t: "SCTV: The Greatest Show You've Never Heard Of", sub: "2026", type: "movie", p: "Netflix", g: ["Comedy"], b: "A documentary about the sketch comedy series SCTV.", added: "2026-10-20" }
 ];
 
@@ -403,6 +408,8 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "Heat": "A veteran thief and an obsessive detective circle each other across Los Angeles ahead of a major heist.",
+  "Gladiator": "A betrayed Roman general becomes a gladiator and fights his way toward revenge in the arena.",
   "Lord of the Flies": "Schoolboys stranded on a remote island slide from cooperation into chaos in this adaptation of the classic novel.",
   "The Diplomat": "A veteran diplomat navigates high-stakes political crises in this Netflix thriller.",
   "American Horror Story": "The long-running anthology series returns with a new self-contained horror season.",
