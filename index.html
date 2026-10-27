@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 26, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 27, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -286,7 +286,7 @@ var TOP = [
   { t: "East of Eden", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama"], s: 87, added: "2026-10-12" },
   { t: "Below", sub: "Limited series", type: "show", p: "Netflix", g: ["Suspense", "Horror"], s: 88, added: "2026-10-12" },
   { t: "Disclosure Day", sub: "2026", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], s: 80, added: "2026-10-12" },
-  { t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], s: 87, added: "2026-10-12" },
+  { t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], s: 89, added: "2026-10-12" },
   { t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], s: 100, added: "2026-10-12" },
   { t: "Moonlight", sub: "2016", type: "movie", p: "Netflix", g: ["Drama"], s: 98, added: "2026-10-12" },
   { t: "Psycho", sub: "1960", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], s: 97, added: "2026-10-12" },
@@ -310,10 +310,13 @@ var TOP = [
   { t: "Cyberpunk: Edgerunners 2", sub: "Season 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], s: 80, added: "2026-10-25" },
   { t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 100, added: "2026-10-25" },
   { t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], s: 57, added: "2026-10-25" },
+  { t: "Avatar: Seven Havens", sub: "Season 1", type: "show", p: "Paramount+", g: ["Animation", "Fantasy", "Action"], s: 100, added: "2026-10-27" },
+  { t: "Small Prophets", sub: "Season 1", type: "show", p: "Apple TV", g: ["Comedy", "Fantasy"], s: 100, added: "2026-10-27" },
+  { t: "The Invite", sub: "2026", type: "movie", p: "HBO Max", g: ["Comedy", "Drama"], s: 96, added: "2026-10-27" },
 ];
 
 var NEW = [
-  { d: "2026-10-01", t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A British legal drama about a tech founder's divorce and the law firms on each side.", s: 87, added: "2026-10-12" },
+  { d: "2026-10-01", t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A British legal drama about a tech founder's divorce and the law firms on each side.", s: 89, added: "2026-10-12" },
   { d: "2026-10-02", t: "East of Eden", type: "show", p: "Netflix", g: ["Drama"], b: "Steinbeck's novel as a limited series, with Florence Pugh.", s: 87 },
   { d: "2026-10-02", t: "Evil Dead Burn", type: "movie", p: "HBO Max", g: ["Horror"], b: "The latest Evil Dead film, in time for Halloween." },
   { d: "2026-10-02", t: "Wuthering Heights", type: "movie", p: "Prime Video", g: ["Drama", "Romance"], b: "The 2026 film adaptation." },
@@ -325,6 +328,8 @@ var NEW = [
   { d: "2026-10-08", t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], b: "Season 6 premiere." },
   { d: "2026-10-08", t: "Below", type: "show", p: "Netflix", g: ["Suspense", "Horror"], b: "A Newfoundland town is threatened by something in the sea in this mystery thriller series.", s: 88, added: "2026-10-12" },
   { d: "2026-10-08", t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], b: "A Silicon Valley legal drama about lawyers representing people harmed by tech elites.", s: 100, added: "2026-10-12" },
+  { d: "2026-10-09", t: "Avatar: Seven Havens", sub: "Season 1", type: "show", p: "Paramount+", g: ["Animation", "Fantasy", "Action"], b: "Animated Avatar sequel series set generations after Korra, following a young Earthbender who learns she is the next Avatar.", s: 100, added: "2026-10-27" },
+  { d: "2026-10-07", t: "Small Prophets", sub: "Season 1", type: "show", p: "Apple TV", g: ["Comedy", "Fantasy"], b: "A British comedy about a man who tries a family recipe for spirits said to foretell the future, hoping to learn if his missing partner will return.", s: 100, added: "2026-10-27" },
   { d: "2026-10-09", t: "Animals", type: "movie", p: "Netflix", g: ["Suspense"], b: "Ben Affleck directs and stars as a mayoral candidate whose son is kidnapped.", s: 44 },
   { d: "2026-10-09", t: "Disclosure Day", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], b: "Steven Spielberg's alien thriller, with Emily Blunt and Josh O'Connor.", s: 80 },
   { d: "2026-10-09", t: "Matchbox The Movie", type: "movie", p: "Apple TV", g: ["Family", "Action"], b: "A big-screen toy-car adventure from Apple.", added: "2026-10-12" },
@@ -356,7 +361,7 @@ var NEW = [
   { d: "2026-10-23", t: "The Invite", type: "movie", p: "HBO Max", g: ["Comedy", "Drama"], b: "Olivia Wilde directs and stars in an A24 comedy about a dinner with upstairs neighbors that turns revealing.", s: 96 },
   { d: "2026-10-23", t: "The Bride!", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], b: "A fresh take on Frankenstein's bride.", s: 57 },
   { d: "2026-10-23", t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], b: "The French heist series returns with a fourth part.", s: 100, added: "2026-10-11" },
-  { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film." },
+  { d: "2026-10-28", t: "Minions & Monsters", type: "movie", p: "Peacock", g: ["Animation", "Comedy", "Family"], b: "The newest Despicable Me franchise film.", s: 89 },
   { d: "2026-10-27", t: "Dangerous Liaisons", sub: "2022", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A prequel-style period drama about how two scheming young lovers met in Paris on the eve of the French Revolution; it first aired on Starz.", s: 47, added: "2026-10-14" },
   { d: "2026-10-30", t: "Dexter: Resurrection", sub: "Season 2", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The Dexter revival returns for its second season.", added: "2026-10-11" },
   { d: "2026-10-30", t: "Nocturne", sub: "Season 1", type: "show", p: "Apple TV", g: ["Suspense", "Drama"], b: "A crime drama based on Lars Kepler novels, centered on a manhunt for a serial killer.", added: "2026-10-12" },
@@ -507,7 +512,10 @@ var DESC = {
   "Crystal Lake": "A grieving mother is pulled back into the dark history of Crystal Lake as strange deaths begin. Set in the Friday the 13th world.",
   "Love of Your Life": "A chance meeting turns into a sweeping romance, until one character's life is abruptly upended.",
   "Dallas Buyers Club": "A Texas man diagnosed with HIV in the 1980s starts smuggling in unapproved treatments.",
-  "Last Breath": "Deep-sea divers attempt to rescue a teammate stranded below, based on a true story."
+  "Last Breath": "Deep-sea divers attempt to rescue a teammate stranded below, based on a true story.",
+  "Avatar: Seven Havens": "An animated sequel set long after Korra, following a young Earthbender who discovers she is the next Avatar.",
+  "Small Prophets": "A British comedy about a man who tries a family recipe for spirits said to predict the future, hoping to learn if his missing partner will return.",
+  "The Invite": "A dinner with upstairs neighbors turns revealing in this A24 comedy directed by and starring Olivia Wilde."
 };
 
 var META = {};
