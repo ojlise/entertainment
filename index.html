@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Oct 27, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Oct 30, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -286,7 +286,7 @@ var TOP = [
   { t: "East of Eden", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama"], s: 87, added: "2026-10-12" },
   { t: "Below", sub: "Limited series", type: "show", p: "Netflix", g: ["Suspense", "Horror"], s: 88, added: "2026-10-12" },
   { t: "Disclosure Day", sub: "2026", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], s: 80, added: "2026-10-12" },
-  { t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], s: 89, added: "2026-10-12" },
+  { t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], s: 85, added: "2026-10-12" },
   { t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], s: 100, added: "2026-10-12" },
   { t: "Moonlight", sub: "2016", type: "movie", p: "Netflix", g: ["Drama"], s: 98, added: "2026-10-12" },
   { t: "Psycho", sub: "1960", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], s: 97, added: "2026-10-12" },
@@ -294,7 +294,7 @@ var TOP = [
   { t: "The Bourne Ultimatum", sub: "2007", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 92, added: "2026-10-12" },
   { t: "Dallas Buyers Club", sub: "2013", type: "movie", p: "Netflix", g: ["Drama"], s: 92, added: "2026-10-12" },
   { t: "Tenzing", sub: "2026", type: "movie", p: "Apple TV", g: ["Drama", "Action"], s: 98, added: "2026-10-13" },
-  { t: "VisionQuest", sub: "Season 1", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], s: 90, added: "2026-10-14" },
+  { t: "VisionQuest", sub: "Season 1", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], s: 91, added: "2026-10-14" },
   { t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], s: 76, added: "2026-10-14" },
   { t: "Love of Your Life", sub: "2026", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], s: 81, added: "2026-10-14" },
   { t: "The Bride!", sub: "2026", type: "movie", p: "Prime Video", g: ["Horror", "Romance"], s: 57, added: "2026-10-16" },
@@ -306,17 +306,20 @@ var TOP = [
   { t: "Lord of the Flies", sub: "Limited series", type: "show", p: "Netflix", g: ["Drama", "Suspense"], s: 92, added: "2026-10-20" },
   { t: "Heat", sub: "1995", type: "movie", p: "Netflix", g: ["Action", "Suspense"], s: 84, added: "2026-10-22" },
   { t: "Gladiator", sub: "2000", type: "movie", p: "Netflix", g: ["Action", "Drama"], s: 80, added: "2026-10-22" },
-  { t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], s: 90, added: "2026-10-25" },
+  { t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], s: 92, added: "2026-10-25" },
   { t: "Cyberpunk: Edgerunners 2", sub: "Season 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], s: 80, added: "2026-10-25" },
   { t: "Lupin", sub: "Part 4", type: "show", p: "Netflix", g: ["Suspense", "Drama"], s: 100, added: "2026-10-25" },
   { t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], s: 57, added: "2026-10-25" },
   { t: "Avatar: Seven Havens", sub: "Season 1", type: "show", p: "Paramount+", g: ["Animation", "Fantasy", "Action"], s: 100, added: "2026-10-27" },
   { t: "Small Prophets", sub: "Season 1", type: "show", p: "Apple TV", g: ["Comedy", "Fantasy"], s: 100, added: "2026-10-27" },
   { t: "The Invite", sub: "2026", type: "movie", p: "HBO Max", g: ["Comedy", "Drama"], s: 96, added: "2026-10-27" },
+  { t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], s: 99, added: "2026-10-30" },
+  { t: "The Lowdown", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama", "Suspense"], s: 99, added: "2026-10-30" },
+  { t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], s: 100, added: "2026-10-30" },
 ];
 
 var NEW = [
-  { d: "2026-10-01", t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A British legal drama about a tech founder's divorce and the law firms on each side.", s: 89, added: "2026-10-12" },
+  { d: "2026-10-01", t: "War", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A British legal drama about a tech founder's divorce and the law firms on each side.", s: 85, added: "2026-10-12" },
   { d: "2026-10-02", t: "East of Eden", type: "show", p: "Netflix", g: ["Drama"], b: "Steinbeck's novel as a limited series, with Florence Pugh.", s: 87 },
   { d: "2026-10-02", t: "Evil Dead Burn", type: "movie", p: "HBO Max", g: ["Horror"], b: "The latest Evil Dead film, in time for Halloween." },
   { d: "2026-10-02", t: "Wuthering Heights", type: "movie", p: "Prime Video", g: ["Drama", "Romance"], b: "The 2026 film adaptation." },
@@ -325,7 +328,7 @@ var NEW = [
   { d: "2026-10-04", t: "Marshals", sub: "Season 2", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "Second season, airing on CBS and streaming on Paramount+." },
   { d: "2026-10-06", t: "Reasonable Doubt", sub: "Season 4", type: "show", p: "Hulu", g: ["Drama"], b: "Three-episode season premiere." },
   { d: "2026-10-07", t: "Carrie", type: "show", p: "Prime Video", g: ["Horror", "Drama"], b: "Mike Flanagan's eight-episode take on the Stephen King story.", s: 85 },
-  { d: "2026-10-08", t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], b: "Season 6 premiere." },
+  { d: "2026-10-08", t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], b: "Season 6 premiere.", s: 99 },
   { d: "2026-10-08", t: "Below", type: "show", p: "Netflix", g: ["Suspense", "Horror"], b: "A Newfoundland town is threatened by something in the sea in this mystery thriller series.", s: 88, added: "2026-10-12" },
   { d: "2026-10-08", t: "Cupertino", sub: "Season 1", type: "show", p: "Paramount+", g: ["Drama", "Suspense"], b: "A Silicon Valley legal drama about lawyers representing people harmed by tech elites.", s: 100, added: "2026-10-12" },
   { d: "2026-10-09", t: "Avatar: Seven Havens", sub: "Season 1", type: "show", p: "Paramount+", g: ["Animation", "Fantasy", "Action"], b: "Animated Avatar sequel series set generations after Korra, following a young Earthbender who learns she is the next Avatar.", s: 100, added: "2026-10-27" },
@@ -334,9 +337,9 @@ var NEW = [
   { d: "2026-10-09", t: "Disclosure Day", type: "movie", p: "Peacock", g: ["Sci-Fi", "Suspense"], b: "Steven Spielberg's alien thriller, with Emily Blunt and Josh O'Connor.", s: 80 },
   { d: "2026-10-09", t: "Matchbox The Movie", type: "movie", p: "Apple TV", g: ["Family", "Action"], b: "A big-screen toy-car adventure from Apple.", added: "2026-10-12" },
   { d: "2026-10-10", t: "Hokum", type: "movie", p: "Hulu", g: ["Horror", "Suspense"], b: "Neon horror with Adam Scott, streaming for the first time." },
-  { d: "2026-10-14", t: "VisionQuest", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], b: "Paul Bettany's Marvel series, new episodes on Wednesdays.", s: 90 },
+  { d: "2026-10-14", t: "VisionQuest", type: "show", p: "Disney+", g: ["Sci-Fi", "Action"], b: "Paul Bettany's Marvel series, new episodes on Wednesdays.", s: 91 },
   { d: "2026-10-14", t: "Love of Your Life", type: "movie", p: "Prime Video", g: ["Romance", "Drama"], b: "Margaret Qualley and Gabriel Basso.", s: 81 },
-  { d: "2026-10-14", t: "The Lowdown", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama", "Suspense"], b: "FX series returns with a two-episode premiere." },
+  { d: "2026-10-14", t: "The Lowdown", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama", "Suspense"], b: "FX series returns with a two-episode premiere.", s: 99 },
   { d: "2026-10-15", t: "The Diplomat", sub: "Season 4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The political thriller returns.", s: 96 },
   { d: "2026-10-15", t: "Crystal Lake", sub: "Season 1", type: "show", p: "Peacock", g: ["Horror", "Suspense"], b: "A new series set in the Friday the 13th world, with all eight episodes released at once.", s: 76, added: "2026-10-11" },
   { d: "2026-10-15", t: "Transformers One", sub: "2024", type: "movie", p: "Netflix", g: ["Animation", "Action", "Family"], b: "The animated origin story of Optimus Prime and Megatron arrives on Netflix.", added: "2026-10-15" },
@@ -346,7 +349,7 @@ var NEW = [
   { d: "2026-10-19", t: "Love in Disguise", sub: "2026", type: "show", p: "Prime Video", g: ["Romance", "Comedy"], b: "A new romance series arriving on Prime Video.", added: "2026-10-18" },
   { d: "2026-10-25", t: "Last Breath", sub: "2025", type: "movie", p: "Hulu", g: ["Suspense", "Action"], b: "Deep-sea divers race to rescue a trapped teammate in this true-story survival drama.", s: 78, added: "2026-10-18" },
   { d: "2026-10-21", t: "Gladiator", sub: "2000", type: "movie", p: "Netflix", g: ["Action", "Drama"], b: "Ridley Scott's Roman arena epic arrives on Netflix, along with its sequel.", s: 80, added: "2026-10-15" },
-  { d: "2026-10-21", t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], b: "Second season of the Apple TV series premieres.", added: "2026-10-15" },
+  { d: "2026-10-21", t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], b: "Second season of the Apple TV series premieres.", s: 100, added: "2026-10-15" },
   { d: "2026-10-16", t: "Scream 7", type: "movie", p: "Prime Video", g: ["Horror", "Suspense"], b: "The slasher franchise's seventh film.", s: 43, added: "2026-10-13" },
   { d: "2026-10-16", t: "Tenzing", type: "movie", p: "Apple TV", g: ["Drama", "Action"], b: "The first Everest summit, with Tom Hiddleston and Willem Dafoe.", s: 98 },
   { d: "2026-10-16", t: "The Death of Robin Hood", type: "movie", p: "HBO Max", g: ["Drama", "Action"], b: "Hugh Jackman in a grim take on the legend.", s: 65 },
@@ -354,7 +357,7 @@ var NEW = [
   { d: "2026-10-16", t: "Tulsa King", sub: "Season 4", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama returns for a fourth season.", added: "2026-10-11" },
   { d: "2026-10-16", t: "Sacrifice", type: "movie", p: "Netflix", g: ["Drama", "Suspense"], b: "A new Netflix film starring Chris Evans and Anya Taylor-Joy.", s: 38, added: "2026-10-12" },
   { d: "2026-10-20", t: "Cyberpunk: Edgerunners 2", type: "show", p: "Netflix", g: ["Animation", "Sci-Fi", "Action"], b: "The animated Cyberpunk series continues.", s: 80, added: "2026-10-11" },
-  { d: "2026-10-20", t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], b: "A comedy-mystery starring Connie Britton as a woman whose identity is in question.", s: 90, added: "2026-10-12" },
+  { d: "2026-10-20", t: "Phony", sub: "Season 1", type: "show", p: "Hulu", g: ["Comedy", "Suspense"], b: "A comedy-mystery starring Connie Britton as a woman whose identity is in question.", s: 92, added: "2026-10-12" },
   { d: "2026-10-21", t: "The Terminal List", sub: "Season 2", type: "show", p: "Prime Video", g: ["Action", "Suspense"], b: "Chris Pratt's Reece uncovers a conspiracy from Moscow to Langley.", s: 57 },
   { d: "2026-10-21", t: "Moana", sub: "2026", type: "movie", p: "Disney+", g: ["Family", "Fantasy"], b: "Disney's live-action remake of its animated adventure arrives on streaming.", s: 33, added: "2026-10-14" },
   { d: "2026-10-22", t: "Nobody Wants This", sub: "Season 3", type: "show", p: "Netflix", g: ["Comedy", "Romance"], b: "The romantic comedy returns for a third season.", s: 87, added: "2026-10-11" },
@@ -515,7 +518,10 @@ var DESC = {
   "Last Breath": "Deep-sea divers attempt to rescue a teammate stranded below, based on a true story.",
   "Avatar: Seven Havens": "An animated sequel set long after Korra, following a young Earthbender who discovers she is the next Avatar.",
   "Small Prophets": "A British comedy about a man who tries a family recipe for spirits said to predict the future, hoping to learn if his missing partner will return.",
-  "The Invite": "A dinner with upstairs neighbors turns revealing in this A24 comedy directed by and starring Olivia Wilde."
+  "The Invite": "A dinner with upstairs neighbors turns revealing in this A24 comedy directed by and starring Olivia Wilde.",
+  "Abbott Elementary": "A mockumentary sitcom about hopeful teachers at an underfunded Philadelphia public school.",
+  "The Lowdown": "A Tulsa bookseller and self-styled investigative journalist digs into local corruption in this crime dramedy.",
+  "Where's Wanda?": "A comedy series on Apple TV, now in its second season."
 };
 
 var META = {};
