@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 3, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 4, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -316,6 +316,11 @@ var TOP = [
   { t: "Abbott Elementary", sub: "Season 6", type: "show", p: "Disney+", g: ["Comedy"], s: 99, added: "2026-10-30" },
   { t: "The Lowdown", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama", "Suspense"], s: 99, added: "2026-10-30" },
   { t: "Where's Wanda?", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy"], s: 100, added: "2026-10-30" },
+  { t: "Annie Hall", sub: "1977", type: "movie", p: "Prime Video", g: ["Comedy", "Romance"], s: 97, added: "2026-11-04" },
+  { t: "Good Will Hunting", sub: "1997", type: "movie", p: "Prime Video", g: ["Drama"], s: 97, added: "2026-11-04" },
+  { t: "Hang 'Em High", sub: "1968", type: "movie", p: "Prime Video", g: ["Action", "Drama"], s: 93, added: "2026-11-04" },
+  { t: "WarGames", sub: "1983", type: "movie", p: "Prime Video", g: ["Sci-Fi", "Suspense"], s: 93, added: "2026-11-04" },
+  { t: "The Wolf of Snow Hollow", sub: "2020", type: "movie", p: "Prime Video", g: ["Horror", "Comedy"], s: 90, added: "2026-11-04" },
 ];
 
 var NEW = [
@@ -323,7 +328,7 @@ var NEW = [
   { d: "2026-11-03", t: "Bass X Machina", sub: "Season 1", type: "show", p: "Netflix", g: ["Animation"], b: "A new Netflix series; details are limited so far.", added: "2026-11-01" },
   { d: "2026-11-04", t: "All's Fair", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama"], b: "Ryan Murphy's drama about high-powered female divorce attorneys returns.", added: "2026-11-01" },
   { d: "2026-11-04", t: "The Greatest", type: "show", p: "Prime Video", g: ["Drama"], b: "A limited series about boxer Muhammad Ali.", added: "2026-11-01" },
-  { d: "2026-11-04", t: "Stick", sub: "Season 1", type: "show", p: "Apple TV", g: ["Comedy", "Drama"], b: "A new Apple TV series arriving in early November.", added: "2026-11-01" },
+  { d: "2026-11-04", t: "Stick", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy", "Drama"], b: "The golf comedy-drama returns for a second season.", added: "2026-11-01" },
   { d: "2026-11-05", t: "Black Doves", sub: "Season 2", type: "show", p: "Netflix", g: ["Suspense", "Action"], b: "The spy thriller returns for a second season.", added: "2026-11-01" },
   { d: "2026-11-05", t: "North of North", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], b: "The Inuit-set comedy returns.", added: "2026-11-01" },
   { d: "2026-11-06", t: "It Gets Worse", sub: "Season 1", type: "show", p: "Paramount+", g: ["Comedy"], b: "A new British comedy series.", added: "2026-11-01" },
@@ -342,7 +347,6 @@ var NEW = [
   { d: "2026-11-18", t: "Madden", type: "movie", p: "Prime Video", g: ["Drama"], b: "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.", added: "2026-11-01" },
   { d: "2026-11-19", t: "The Altruists", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A limited series about a romance involving a fraudster.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Percy Jackson and the Olympians", sub: "Season 3", type: "show", p: "Disney+", g: ["Fantasy", "Family", "Action"], b: "The mythology adventure series returns for its third season.", added: "2026-11-01" },
-  { d: "2026-11-20", t: "Yellowjackets", sub: "Season 4", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The final season, with the survivors finally rescued and the story jumping decades ahead.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Tony", type: "movie", p: "HBO Max", g: ["Drama"], b: "A24's Anthony Bourdain biopic makes its streaming debut.", added: "2026-11-01" },
   { d: "2026-11-23", t: "Dig", sub: "Season 1", type: "show", p: "Peacock", g: ["Comedy", "Suspense"], b: "A comedy from Amy Poehler and Michael Schur about archaeologists who uncover an international conspiracy in Greece.", added: "2026-11-01" },
   { d: "2026-11-25", t: "Blade Runner 2099", sub: "Season 1", type: "show", p: "Prime Video", g: ["Sci-Fi", "Drama"], b: "A limited series set 50 years after Blade Runner 2049, with Michelle Yeoh and Hunter Schafer.", added: "2026-11-01" },
@@ -360,6 +364,11 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "Annie Hall": "Woody Allen's neurotic comic navigates love and heartbreak in a landmark romantic comedy.",
+  "Good Will Hunting": "A janitorial worker with a gift for math is pushed by a therapist to confront his past.",
+  "Hang 'Em High": "A wrongly hanged man survives and seeks justice as a lawman in the Old West.",
+  "WarGames": "A teenage hacker nearly triggers a nuclear standoff by playing what he thinks is a game.",
+  "The Wolf of Snow Hollow": "A small-town cop with a short fuse hunts a killer during a series of snowbound murders.",
   "Phony": "A comedy-mystery in which a woman's identity is called into question.",
   "Cyberpunk: Edgerunners 2": "The animated sci-fi series returns to Night City with more street-level danger and cybernetic chaos.",
   "Lupin": "The French gentleman-thief series continues with a new part of heists and double-crosses.",
