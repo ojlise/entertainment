@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 5, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 7, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -321,6 +321,9 @@ var TOP = [
   { t: "Hang 'Em High", sub: "1968", type: "movie", p: "Prime Video", g: ["Action", "Drama"], s: 93, added: "2026-11-04" },
   { t: "WarGames", sub: "1983", type: "movie", p: "Prime Video", g: ["Sci-Fi", "Suspense"], s: 93, added: "2026-11-04" },
   { t: "The Wolf of Snow Hollow", sub: "2020", type: "movie", p: "Prime Video", g: ["Horror", "Comedy"], s: 90, added: "2026-11-04" },
+  { t: "Black Doves", sub: "Season 2", type: "show", p: "Netflix", g: ["Suspense", "Action"], s: 92, added: "2026-11-07" },
+  { t: "North of North", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], s: 100, added: "2026-11-07" },
+  { t: "The Uprising", sub: "2026", type: "movie", p: "Peacock", g: ["Drama", "Action"], s: 57, added: "2026-11-07" },
 ];
 
 var NEW = [
@@ -329,13 +332,15 @@ var NEW = [
   { d: "2026-11-04", t: "All's Fair", sub: "Season 2", type: "show", p: "Hulu", g: ["Drama"], b: "Ryan Murphy's drama about high-powered female divorce attorneys returns.", added: "2026-11-01" },
   { d: "2026-11-04", t: "The Greatest", type: "show", p: "Prime Video", g: ["Drama"], b: "A limited series about boxer Muhammad Ali.", added: "2026-11-01" },
   { d: "2026-11-04", t: "Stick", sub: "Season 2", type: "show", p: "Apple TV", g: ["Comedy", "Drama"], b: "The golf comedy-drama returns for a second season.", s: 100, added: "2026-11-01" },
-  { d: "2026-11-05", t: "Black Doves", sub: "Season 2", type: "show", p: "Netflix", g: ["Suspense", "Action"], b: "The spy thriller returns for a second season.", added: "2026-11-01" },
-  { d: "2026-11-05", t: "North of North", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], b: "The Inuit-set comedy returns.", added: "2026-11-01" },
+  { d: "2026-11-05", t: "Black Doves", sub: "Season 2", type: "show", p: "Netflix", g: ["Suspense", "Action"], b: "The spy thriller returns for a second season.", s: 92, added: "2026-11-01" },
+  { d: "2026-11-05", t: "North of North", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], b: "The Inuit-set comedy returns.", s: 100, added: "2026-11-01" },
   { d: "2026-11-06", t: "It Gets Worse", sub: "Season 1", type: "show", p: "Paramount+", g: ["Comedy"], b: "A new British comedy series.", added: "2026-11-01" },
-  { d: "2026-11-06", t: "The Uprising", type: "movie", p: "Peacock", g: ["Drama"], b: "A historical drama starring Andrew Garfield.", added: "2026-11-01" },
+  { d: "2026-11-06", t: "The Uprising", type: "movie", p: "Peacock", g: ["Drama"], b: "A historical drama starring Andrew Garfield.", s: 57, added: "2026-11-01" },
   { d: "2026-11-06", t: "Possible Love", type: "movie", p: "Netflix", g: ["Romance", "Drama"], b: "A Korean romantic drama film arriving on Netflix.", added: "2026-11-03" },
+  { d: "2026-11-06", t: "Awkwafina: The Unlikely Cook", type: "show", p: "Apple TV", g: ["Comedy"], b: "A new Apple TV series featuring Awkwafina; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-08", t: "City of God: The Fight Rages On", sub: "Season 2", type: "show", p: "HBO Max", g: ["Drama", "Action"], b: "The Brazilian series that follows the 2002 film returns, set among police, gangs and militias in a favela.", added: "2026-11-01" },
   { d: "2026-11-10", t: "Reminders of Him", type: "movie", p: "Netflix", g: ["Romance", "Drama"], b: "A romantic drama adapted from the bestselling novel, arriving on Netflix.", added: "2026-11-03" },
+  { d: "2026-11-12", t: "The Empress", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "The period drama returns for a third season.", added: "2026-11-07" },
   { d: "2026-11-11", t: "The Lord of the Rings: The Rings of Power", sub: "Season 3", type: "show", p: "Prime Video", g: ["Fantasy", "Action"], b: "Forces of good unite against Sauron as he forges the One Ring.", added: "2026-11-01" },
   { d: "2026-11-11", t: "Rivals", sub: "Season 2 (part 2)", type: "show", p: "Hulu", g: ["Comedy", "Drama"], b: "The second half of the British period dramedy's new season.", added: "2026-11-01" },
   { d: "2026-11-12", t: "The Good Daughter", type: "show", p: "Peacock", g: ["Suspense", "Drama"], b: "A limited thriller about estranged sisters pulled into a crime in their hometown, based on a Karin Slaughter novel.", added: "2026-11-01" },
@@ -343,6 +348,7 @@ var NEW = [
   { d: "2026-11-13", t: "12 12 12", sub: "Season 1", type: "show", p: "Apple TV", g: ["Drama"], b: "A new Apple TV series; details are limited so far.", added: "2026-11-01" },
   { d: "2026-11-13", t: "Heartland", type: "movie", p: "Netflix", g: ["Drama"], b: "A new Netflix film.", added: "2026-11-01" },
   { d: "2026-11-15", t: "The Chosen", sub: "Season 6", type: "show", p: "Prime Video", g: ["Drama"], b: "The faith-based drama continues with its sixth season.", added: "2026-11-01" },
+  { d: "2026-11-15", t: "Cunk on Cinema", type: "show", p: "Netflix", g: ["Comedy"], b: "A comedy series arriving on Netflix; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-17", t: "Obsession", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], b: "Curry Barker's box-office hit arrives after its theatrical and Peacock run.", added: "2026-11-01" },
   { d: "2026-11-18", t: "Madden", type: "movie", p: "Prime Video", g: ["Drama"], b: "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.", added: "2026-11-01" },
   { d: "2026-11-19", t: "The Altruists", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A limited series about a romance involving a fraudster.", added: "2026-11-01" },
@@ -350,9 +356,11 @@ var NEW = [
   { d: "2026-11-20", t: "Tony", type: "movie", p: "HBO Max", g: ["Drama"], b: "A24's Anthony Bourdain biopic makes its streaming debut.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Yellowjackets", sub: "Season 4", type: "show", p: "Paramount+", g: ["Suspense", "Drama"], b: "The final season of the survival drama, as the survivors race to bury their secrets before rescue arrives.", added: "2026-11-05" },
   { d: "2026-11-23", t: "Dig", sub: "Season 1", type: "show", p: "Peacock", g: ["Comedy", "Suspense"], b: "A comedy from Amy Poehler and Michael Schur about archaeologists who uncover an international conspiracy in Greece.", added: "2026-11-01" },
+  { d: "2026-11-23", t: "The Trials of Karen Read", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "A documentary series about the Karen Read case.", added: "2026-11-07" },
   { d: "2026-11-25", t: "Blade Runner 2099", sub: "Season 1", type: "show", p: "Prime Video", g: ["Sci-Fi", "Drama"], b: "A limited series set 50 years after Blade Runner 2049, with Michelle Yeoh and Hunter Schafer.", added: "2026-11-01" },
   { d: "2026-11-25", t: "The Mosquito Bowl", type: "movie", p: "Netflix", g: ["Drama", "Action"], b: "College football stars enlist in the Marines during World War II.", added: "2026-11-01" },
   { d: "2026-11-26", t: "The Hunting Wives", sub: "Season 2", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The East Texas socialite crime drama returns.", added: "2026-11-01" },
+  { d: "2026-11-30", t: "The Boy Who Stole Billions?", type: "show", p: "Prime Video", g: ["Drama"], b: "A limited series arriving on Prime Video; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-30", t: "The Super Mario Galaxy Movie", type: "movie", p: "Netflix", g: ["Animation", "Family"], b: "The animated Mario sequel makes its Netflix streaming debut.", added: "2026-11-03" },
 ];
 
@@ -365,6 +373,9 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "Black Doves": "A spy thriller about a woman with a secret identity who is protected by an assassin, now back for a second season.",
+  "North of North": "A comedy set in a small Arctic town, following a young Inuk woman rebuilding her life after leaving her marriage.",
+  "The Uprising": "A historical drama about a people's army rising against King Richard II in the 1381 revolt.",
   "Annie Hall": "Woody Allen's neurotic comic navigates love and heartbreak in a landmark romantic comedy.",
   "Good Will Hunting": "A janitorial worker with a gift for math is pushed by a therapist to confront his past.",
   "Hang 'Em High": "A wrongly hanged man survives and seeks justice as a lawman in the Old West.",
