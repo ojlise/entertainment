@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 7, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 8, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -324,6 +324,7 @@ var TOP = [
   { t: "Black Doves", sub: "Season 2", type: "show", p: "Netflix", g: ["Suspense", "Action"], s: 92, added: "2026-11-07" },
   { t: "North of North", sub: "Season 2", type: "show", p: "Netflix", g: ["Comedy"], s: 100, added: "2026-11-07" },
   { t: "The Uprising", sub: "2026", type: "movie", p: "Peacock", g: ["Drama", "Action"], s: 57, added: "2026-11-07" },
+  { t: "Rivals", sub: "Season 2", type: "show", p: "Hulu", g: ["Comedy", "Drama"], s: 97, added: "2026-11-08" },
 ];
 
 var NEW = [
@@ -341,8 +342,10 @@ var NEW = [
   { d: "2026-11-08", t: "City of God: The Fight Rages On", sub: "Season 2", type: "show", p: "HBO Max", g: ["Drama", "Action"], b: "The Brazilian series that follows the 2002 film returns, set among police, gangs and militias in a favela.", added: "2026-11-01" },
   { d: "2026-11-10", t: "Reminders of Him", type: "movie", p: "Netflix", g: ["Romance", "Drama"], b: "A romantic drama adapted from the bestselling novel, arriving on Netflix.", added: "2026-11-03" },
   { d: "2026-11-12", t: "The Empress", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "The period drama returns for a third season.", added: "2026-11-07" },
+  { d: "2026-11-10", t: "The Devil's Plan", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama"], b: "The Korean strategy-game competition series returns for a third season.", added: "2026-11-08" },
+  { d: "2026-11-10", t: "Janelle James: How Romantic", type: "show", p: "Netflix", g: ["Comedy"], b: "A stand-up comedy special from Janelle James.", added: "2026-11-08" },
   { d: "2026-11-11", t: "The Lord of the Rings: The Rings of Power", sub: "Season 3", type: "show", p: "Prime Video", g: ["Fantasy", "Action"], b: "Forces of good unite against Sauron as he forges the One Ring.", added: "2026-11-01" },
-  { d: "2026-11-11", t: "Rivals", sub: "Season 2 (part 2)", type: "show", p: "Hulu", g: ["Comedy", "Drama"], b: "The second half of the British period dramedy's new season.", added: "2026-11-01" },
+  { d: "2026-11-11", t: "Rivals", sub: "Season 2 (part 2)", type: "show", p: "Hulu", g: ["Comedy", "Drama"], b: "The second half of the British period dramedy's new season.", s: 97, added: "2026-11-01" },
   { d: "2026-11-12", t: "The Good Daughter", type: "show", p: "Peacock", g: ["Suspense", "Drama"], b: "A limited thriller about estranged sisters pulled into a crime in their hometown, based on a Karin Slaughter novel.", added: "2026-11-01" },
   { d: "2026-11-12", t: "The Secret Lives of Mormon Wives: Orange County", sub: "Season 1", type: "show", p: "Hulu", g: ["Drama"], b: "The first spin-off of the reality franchise.", added: "2026-11-01" },
   { d: "2026-11-13", t: "12 12 12", sub: "Season 1", type: "show", p: "Apple TV", g: ["Drama"], b: "A new Apple TV series; details are limited so far.", added: "2026-11-01" },
@@ -373,6 +376,7 @@ var PLATS = ["Netflix", "HBO Max", "Prime Video", "Hulu", "Disney+", "Apple TV",
 var TMDB_KEY = "66304acc3bb345483943df68774b3433";
 
 var DESC = {
+  "Rivals": "A glossy British period dramedy about rival media and society figures clashing in the English countryside, now in its second season.",
   "Black Doves": "A spy thriller about a woman with a secret identity who is protected by an assassin, now back for a second season.",
   "North of North": "A comedy set in a small Arctic town, following a young Inuk woman rebuilding her life after leaving her marriage.",
   "The Uprising": "A historical drama about a people's army rising against King Richard II in the 1381 revolt.",
