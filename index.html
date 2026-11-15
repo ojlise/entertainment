@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 14, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 15, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -368,15 +368,15 @@ var NEW = [
   { d: "2026-11-15", t: "Paddington in Peru", type: "movie", p: "Hulu", g: ["Family", "Comedy"], b: "The marmalade-loving bear travels to Peru in his third film adventure.", added: "2026-11-13" },
   { d: "2026-11-20", t: "They Will Kill You", type: "movie", p: "Prime Video", g: ["Horror", "Action"], b: "A horror-action film arriving on Prime Video; details are limited so far.", added: "2026-11-13" },
   { d: "2026-11-27", t: "The Magic Faraway Tree", type: "movie", p: "HBO Max", g: ["Fantasy", "Family"], b: "A family fantasy adventure based on the classic children's books.", added: "2026-11-13" },
-  { d: "2026-11-13", t: "12 12 12", sub: "Season 1", type: "show", p: "Apple TV", g: ["Drama"], b: "A new Apple TV series; details are limited so far.", added: "2026-11-01" },
+  { d: "2026-11-13", t: "12 12 12", type: "movie", p: "Apple TV", g: ["Suspense", "Action"], b: "A heist thriller about a Zurich bank robbery, with a disgraced FBI agent in pursuit.", added: "2026-11-01" },
   { d: "2026-11-13", t: "Being Heumann", type: "movie", p: "Apple TV", g: ["Drama"], b: "A documentary about disability-rights activist Judith Heumann.", s: 86, added: "2026-11-11" },
   { d: "2026-11-13", t: "Clangold", sub: "Season 1", type: "show", p: "HBO Max", g: ["Comedy"], b: "A new HBO Max series; details are limited so far.", added: "2026-11-11" },
-  { d: "2026-11-13", t: "Heartland", type: "movie", p: "Netflix", g: ["Drama"], b: "A new Netflix film.", added: "2026-11-01" },
+  { d: "2026-11-13", t: "Heartland", type: "movie", p: "Netflix", g: ["Suspense", "Drama"], b: "A mystery thriller about a faded country star searching Nashville for her missing niece.", added: "2026-11-01" },
   { d: "2026-11-15", t: "The Chosen", sub: "Season 6", type: "show", p: "Prime Video", g: ["Drama"], b: "The faith-based drama continues with its sixth season.", added: "2026-11-01" },
   { d: "2026-11-15", t: "Cunk on Cinema", type: "show", p: "Netflix", g: ["Comedy"], b: "A comedy series arriving on Netflix; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-17", t: "Obsession", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], b: "Curry Barker's box-office hit arrives after its theatrical and Peacock run.", added: "2026-11-01" },
   { d: "2026-11-18", t: "Madden", type: "movie", p: "Prime Video", g: ["Drama"], b: "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.", added: "2026-11-01" },
-  { d: "2026-11-19", t: "The Altruists", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A limited series about a romance involving a fraudster.", added: "2026-11-01" },
+  { d: "2026-11-19", t: "The Altruists", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A limited series dramatizing the rise and collapse of a crypto exchange through its founders' relationship.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Percy Jackson and the Olympians", sub: "Season 3", type: "show", p: "Disney+", g: ["Fantasy", "Family", "Action"], b: "The mythology adventure series returns for its third season.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Tony", type: "movie", p: "HBO Max", g: ["Drama"], b: "A24's Anthony Bourdain biopic makes its streaming debut.", added: "2026-11-01" },
   { d: "2026-11-20", t: "MobLand", sub: "Season 2", type: "show", p: "Paramount+", g: ["Drama", "Action"], b: "The crime drama wraps up its run with its series finale.", added: "2026-11-11" },
@@ -389,12 +389,21 @@ var NEW = [
   { d: "2026-11-26", t: "The Hunting Wives", sub: "Season 2", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The East Texas socialite crime drama returns.", added: "2026-11-01" },
   { d: "2026-11-30", t: "The Boy Who Stole Billions?", type: "show", p: "Prime Video", g: ["Drama"], b: "A limited series arriving on Prime Video; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-30", t: "The Super Mario Galaxy Movie", type: "movie", p: "Netflix", g: ["Animation", "Family"], b: "The animated Mario sequel makes its Netflix streaming debut.", added: "2026-11-03" },
+  { d: "2026-11-08", t: "The Institute", sub: "Season 2", type: "show", p: "MGM+", g: ["Sci-Fi", "Suspense"], b: "Survivors of a facility for psychic children try to stop its villainous director from rebuilding it.", added: "2026-11-15" },
+  { d: "2026-11-16", t: "You Won't Be Alone", type: "movie", p: "Peacock", g: ["Horror", "Drama"], b: "A film arriving as a Peacock exclusive; details are limited so far.", added: "2026-11-15" },
+  { d: "2026-11-17", t: "Run the World", sub: "Seasons 1-2", type: "show", p: "Netflix", g: ["Comedy", "Drama"], b: "Both seasons of the series arrive on Netflix; details are limited so far.", added: "2026-11-15" },
+  { d: "2026-11-18", t: "Vienna Game", type: "show", p: "Hulu", g: ["Suspense", "Drama"], b: "A Hulu Original premiere; details are limited so far.", added: "2026-11-15" },
+  { d: "2026-11-20", t: "The Roses", type: "movie", p: "HBO Max", g: ["Comedy"], b: "The 2025 dark comedy about a marriage turning into a feud arrives on HBO Max.", added: "2026-11-15" },
+  { d: "2026-11-23", t: "Clashing Through the Snow", type: "movie", p: "Prime Video", g: ["Romance", "Comedy"], b: "A holiday film arriving on Prime Video; details are limited so far.", added: "2026-11-15" },
+  { d: "2026-11-24", t: "Dragons: Rescue Riders", type: "show", p: "Peacock", g: ["Animation", "Family"], b: "A new animated adventure series for kids, a Peacock exclusive.", added: "2026-11-15" },
+  { d: "2026-11-25", t: "Way of the Warrior Kid", type: "movie", p: "Apple TV", g: ["Drama", "Family"], b: "A decorated soldier trains his bullied 11-year-old nephew, based on a bestselling book.", added: "2026-11-15" },
+  { d: "2026-11-28", t: "The Lord of the Rings: The War of the Rohirrim", type: "movie", p: "Prime Video", g: ["Animation", "Fantasy", "Action"], b: "The animated Middle-earth film set in the history of Rohan arrives on Prime Video.", added: "2026-11-15" },
   { d: "2026-11-14", t: "Gift", sub: "Season 1", type: "show", p: "HBO Max", g: ["Drama"], b: "A new HBO Max series; details are limited so far.", added: "2026-11-14" },
   { d: "2026-11-15", t: "Smile", type: "movie", p: "Netflix", g: ["Horror"], b: "The psychological horror film arrives on Netflix.", added: "2026-11-14" },
   { d: "2026-11-15", t: "Insidious", type: "movie", p: "Netflix", g: ["Horror"], b: "The haunted-house horror film arrives on Netflix.", added: "2026-11-14" },
   { d: "2026-11-17", t: "RBG", type: "movie", p: "Netflix", g: ["Drama"], b: "A documentary about Supreme Court Justice Ruth Bader Ginsburg, arriving on Netflix.", added: "2026-11-14" },
   { d: "2026-11-18", t: "Gentle Monster", type: "movie", p: "Netflix", g: ["Drama"], b: "A new Netflix film; details are limited so far.", added: "2026-11-14" },
-  { d: "2026-11-18", t: "Guarding Stars", type: "movie", p: "Netflix", g: ["Drama"], b: "A new Netflix film; details are limited so far.", added: "2026-11-14" },
+  { d: "2026-11-18", t: "Guarding Stars", type: "movie", p: "Netflix", g: ["Romance", "Comedy"], b: "A romantic comedy in which a bodyguard and an action star pretend to date.", added: "2026-11-14" },
   { d: "2026-11-20", t: "Steps", type: "movie", p: "Netflix", g: ["Family", "Comedy"], b: "A new family film arriving on Netflix; details are limited so far.", added: "2026-11-14" },
   { d: "2026-11-21", t: "Alien: Romulus", type: "movie", p: "Peacock", g: ["Horror", "Sci-Fi"], b: "The sci-fi horror entry in the Alien franchise arrives on Peacock.", added: "2026-11-14" },
   { d: "2026-11-23", t: "The Great British Baking Show: Holidays", sub: "Season 9", type: "show", p: "Netflix", g: ["Family", "Comedy"], b: "The festive edition of the baking competition returns.", added: "2026-11-14" },
