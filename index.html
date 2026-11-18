@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 17, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 18, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -331,6 +331,10 @@ var TOP = [
   { t: "The Greatest", sub: "Limited series", type: "show", p: "Prime Video", g: ["Drama"], s: 88, added: "2026-11-10" },
   { t: "Bass X Machina", sub: "Season 1", type: "show", p: "Netflix", g: ["Animation"], s: 100, added: "2026-11-10" },
   { t: "Reminders of Him", sub: "2026", type: "movie", p: "Netflix", g: ["Romance", "Drama"], s: 56, added: "2026-11-10" },
+  { t: "Looper", sub: "2012", type: "movie", p: "Netflix", g: ["Sci-Fi", "Action"], s: 93, added: "2026-11-18" },
+  { t: "The Best Christmas Pageant Ever", sub: "2024", type: "movie", p: "Netflix", g: ["Comedy", "Family"], s: 92, added: "2026-11-18" },
+  { t: "Stand by Me", sub: "1986", type: "movie", p: "Netflix", g: ["Drama"], s: 89, added: "2026-11-18" },
+  { t: "Bridesmaids", sub: "2011", type: "movie", p: "Netflix", g: ["Comedy"], s: 89, added: "2026-11-18" },
 ];
 
 var NEW = [
@@ -417,6 +421,12 @@ var NEW = [
   { d: "2026-11-14", t: "Nobody 2", type: "movie", p: "Peacock", g: ["Action","Comedy"], b: "An assassin's family vacation gets interrupted by a corrupt sheriff working for a crime boss.", added: "2026-11-17" },
   { d: "2026-11-14", t: "Come See Me in the Good Light", type: "movie", p: "Apple TV", g: ["Drama"], b: "A documentary about poets Andrea Gibson and Megan Falley as Gibson faces terminal cancer.", added: "2026-11-17" },
   { d: "2026-11-19", t: "Never Let Go", type: "movie", p: "Peacock", g: ["Horror","Suspense"], b: "A film arriving on Peacock; details are limited so far.", added: "2026-11-17" },
+  { d: "2026-11-01", t: "Looper", type: "movie", p: "Netflix", g: ["Sci-Fi", "Action"], b: "A time-travel thriller about a hired killer who meets his future self.", s: 93, added: "2026-11-18" },
+  { d: "2026-11-01", t: "Bridesmaids", type: "movie", p: "Netflix", g: ["Comedy"], b: "The wedding-party comedy about a maid of honor and her rival arrives on Netflix.", s: 89, added: "2026-11-18" },
+  { d: "2026-11-01", t: "Stand by Me", type: "movie", p: "Netflix", g: ["Drama"], b: "The coming-of-age classic about four friends on a hike arrives on Netflix.", s: 89, added: "2026-11-18" },
+  { d: "2026-11-03", t: "Will Trent", sub: "Seasons 1-4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The first four seasons of the crime drama about an investigator arrive on Netflix.", added: "2026-11-18" },
+  { d: "2026-11-04", t: "A Dog's Perfect Christmas", type: "movie", p: "Netflix", g: ["Family", "Comedy"], b: "A holiday film arriving on Netflix; details are limited so far.", added: "2026-11-18" },
+  { d: "2026-11-23", t: "Mickey 17", type: "movie", p: "Hulu", g: ["Sci-Fi", "Comedy"], b: "The 2025 sci-fi comedy about an expendable worker who is repeatedly cloned arrives on Hulu.", added: "2026-11-18" },
 ];
 
 var GENRES = ["Drama", "Comedy", "Suspense", "Horror", "Sci-Fi", "Action", "Animation", "Romance", "Fantasy", "Family"];
@@ -539,7 +549,11 @@ var DESC = {
   "The Invite": "A dinner with upstairs neighbors turns revealing in this A24 comedy directed by and starring Olivia Wilde.",
   "Abbott Elementary": "A mockumentary sitcom about hopeful teachers at an underfunded Philadelphia public school.",
   "The Lowdown": "A Tulsa bookseller and self-styled investigative journalist digs into local corruption in this crime dramedy.",
-  "Where's Wanda?": "A comedy series on Apple TV, now in its second season."
+  "Where's Wanda?": "A comedy series on Apple TV, now in its second season.",
+  "Looper": "A hit man who kills targets sent back from the future is forced to face his own older self.",
+  "The Best Christmas Pageant Ever": "A family of rowdy siblings takes over a small town's church Christmas pageant.",
+  "Stand by Me": "Four boys set out on a summer hike to find a missing body and grow up along the way.",
+  "Bridesmaids": "A maid of honor's life unravels as she competes with a rival in planning her best friend's wedding.",
 };
 
 var META = {};
