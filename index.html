@@ -147,7 +147,7 @@ footer p { margin: 0; max-width: 75ch; }
       <p class="sub">The best-reviewed titles on the big US streamers, and what landed this month.</p>
     </div>
     <div>
-      <div class="stamp">Data checked <b>Nov 18, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
+      <div class="stamp">Data checked <b>Nov 19, 2026</b><span class="tl"><br>Today is <b id="today"></b></span></div>
       <nav class="jump" aria-label="Sections"><a href="#top">Top rated</a><a href="#new">New this month</a></nav>
     </div>
   </header>
@@ -356,7 +356,7 @@ var NEW = [
   { d: "2026-11-12", t: "The Empress", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "The period drama returns for a third season.", added: "2026-11-07" },
   { d: "2026-11-10", t: "The Devil's Plan", sub: "Season 3", type: "show", p: "Netflix", g: ["Drama"], b: "The Korean strategy-game competition series returns for a third season.", added: "2026-11-08" },
   { d: "2026-11-10", t: "Janelle James: How Romantic", type: "show", p: "Netflix", g: ["Comedy"], b: "A stand-up comedy special from Janelle James.", added: "2026-11-08" },
-  { d: "2026-11-11", t: "The Lord of the Rings: The Rings of Power", sub: "Season 3", type: "show", p: "Prime Video", g: ["Fantasy", "Action"], b: "Forces of good unite against Sauron as he forges the One Ring.", added: "2026-11-01" },
+  { d: "2026-11-11", t: "The Lord of the Rings: The Rings of Power", sub: "Season 3", type: "show", p: "Prime Video", g: ["Fantasy", "Action"], b: "Forces of good unite against Sauron as he forges the One Ring.", s: 79, added: "2026-11-01" },
   { d: "2026-11-11", t: "Rivals", sub: "Season 2 (part 2)", type: "show", p: "Hulu", g: ["Comedy", "Drama"], b: "The second half of the British period dramedy's new season.", s: 97, added: "2026-11-01" },
   { d: "2026-11-12", t: "Allen", type: "movie", p: "Netflix", g: ["Sci-Fi", "Comedy"], b: "A sci-fi comedy about a man reuniting with his childhood alien friend.", added: "2026-11-10" },
   { d: "2026-11-12", t: "The Good Daughter", type: "show", p: "Peacock", g: ["Suspense", "Drama"], b: "A limited thriller about estranged sisters pulled into a crime in their hometown, based on a Karin Slaughter novel.", added: "2026-11-01" },
@@ -375,11 +375,11 @@ var NEW = [
   { d: "2026-11-13", t: "12 12 12", type: "movie", p: "Apple TV", g: ["Suspense", "Action"], b: "A heist thriller about a Zurich bank robbery, with a disgraced FBI agent in pursuit.", added: "2026-11-01" },
   { d: "2026-11-13", t: "Being Heumann", type: "movie", p: "Apple TV", g: ["Drama"], b: "A documentary about disability-rights activist Judith Heumann.", s: 86, added: "2026-11-11" },
   { d: "2026-11-13", t: "Clangold", sub: "Season 1", type: "show", p: "HBO Max", g: ["Comedy"], b: "A new HBO Max series; details are limited so far.", added: "2026-11-11" },
-  { d: "2026-11-13", t: "Heartland", type: "movie", p: "Netflix", g: ["Suspense", "Drama"], b: "A mystery thriller about a faded country star searching Nashville for her missing niece.", added: "2026-11-01" },
+  { d: "2026-11-13", t: "Heartland", type: "movie", p: "Netflix", g: ["Suspense", "Drama"], b: "A mystery thriller about a faded country star searching Nashville for her missing niece.", s: 59, added: "2026-11-01" },
   { d: "2026-11-15", t: "The Chosen", sub: "Season 6", type: "show", p: "Prime Video", g: ["Drama"], b: "The faith-based drama continues with its sixth season.", added: "2026-11-01" },
   { d: "2026-11-15", t: "Cunk on Cinema", type: "show", p: "Netflix", g: ["Comedy"], b: "A comedy series arriving on Netflix; details are limited so far.", added: "2026-11-07" },
   { d: "2026-11-17", t: "Obsession", type: "movie", p: "Netflix", g: ["Horror", "Suspense"], b: "Curry Barker's box-office hit arrives after its theatrical and Peacock run.", added: "2026-11-01" },
-  { d: "2026-11-18", t: "Madden", type: "movie", p: "Prime Video", g: ["Drama"], b: "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.", added: "2026-11-01" },
+  { d: "2026-11-18", t: "Madden", type: "movie", p: "Prime Video", g: ["Drama"], b: "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.", s: 18, added: "2026-11-01" },
   { d: "2026-11-19", t: "The Altruists", type: "show", p: "Netflix", g: ["Drama", "Romance"], b: "A limited series dramatizing the rise and collapse of a crypto exchange through its founders' relationship.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Percy Jackson and the Olympians", sub: "Season 3", type: "show", p: "Disney+", g: ["Fantasy", "Family", "Action"], b: "The mythology adventure series returns for its third season.", added: "2026-11-01" },
   { d: "2026-11-20", t: "Tony", type: "movie", p: "HBO Max", g: ["Drama"], b: "A24's Anthony Bourdain biopic makes its streaming debut.", added: "2026-11-01" },
@@ -426,6 +426,8 @@ var NEW = [
   { d: "2026-11-01", t: "Stand by Me", type: "movie", p: "Netflix", g: ["Drama"], b: "The coming-of-age classic about four friends on a hike arrives on Netflix.", s: 89, added: "2026-11-18" },
   { d: "2026-11-03", t: "Will Trent", sub: "Seasons 1-4", type: "show", p: "Netflix", g: ["Drama", "Suspense"], b: "The first four seasons of the crime drama about an investigator arrive on Netflix.", added: "2026-11-18" },
   { d: "2026-11-04", t: "A Dog's Perfect Christmas", type: "movie", p: "Netflix", g: ["Family", "Comedy"], b: "A holiday film arriving on Netflix; details are limited so far.", added: "2026-11-18" },
+  { d: "2026-11-20", t: "On Behalf of My Son", type: "movie", p: "Netflix", g: ["Drama"], b: "A new Netflix film; details are limited so far.", added: "2026-11-19" },
+  { d: "2026-11-23", t: "Ambulance", type: "movie", p: "Peacock", g: ["Action", "Suspense"], b: "The 2022 action thriller about a heist gone wrong and a hijacked ambulance arrives as a Peacock exclusive.", added: "2026-11-19" },
   { d: "2026-11-23", t: "Mickey 17", type: "movie", p: "Hulu", g: ["Sci-Fi", "Comedy"], b: "The 2025 sci-fi comedy about an expendable worker who is repeatedly cloned arrives on Hulu.", added: "2026-11-18" },
 ];
 
